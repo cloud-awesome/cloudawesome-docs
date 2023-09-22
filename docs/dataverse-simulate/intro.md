@@ -1,8 +1,6 @@
-
-
 # dataverse-simulate
 
-Mock framework to simulate Dataverse (Power Platform/Dynamics 365 CE) environments for unit testing
+Mock framework to simulate Dataverse (Power Platform/Dynamics 365 CE) environments to enable unit testing
 
 `dataverse-simulate` uses [NSubstitute](https://nsubstitute.github.io/) to mock all the services provided by the Dataverse API and plugin services
 

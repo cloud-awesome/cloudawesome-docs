@@ -41,6 +41,36 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
   },
+  {
+    title: 'power-portal-gds-accelerator',
+    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    href: 'portal-gds-accelerator/intro',
+    description: (
+        <>
+          All the portal configuration records required to set up a new portal using GDS (gov.uk) patterns in Power Pages
+        </>
+    ),
+  },
+  {
+    title: 'power-portal-test-framework',
+    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    href: 'portal-test-framework/intro',
+    description: (
+        <>
+          Basic test framework extending selenium web driver for Power Pages
+        </>
+    ),
+  },
+  {
+    title: 'gds-wireframe-stencils',
+    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    href: 'gds-wireframe-stencils/intro',
+    description: (
+        <>
+          Stencils to create GDS wireframes in Visio, PowerPoint etc. or print out to stick on the wall in a design workshop
+        </>
+    ),
+  },
 ];
 
 function Feature({title, Svg, href, description}: FeatureItem) {

@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Cloud Awesome Docs',
-  tagline: 'Documentation is cool!',
+  tagline: 'Documentation for each project available on NuGet and Github',
   favicon: 'img/awe-logo.png',
 
   // Set the production url of your site here
@@ -43,7 +43,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/Cloud-Awesome/cloudawesome-docs/',
         },
         blog: false,
         theme: {
@@ -60,7 +60,7 @@ const config = {
       navbar: {
         title: 'Cloud Awesome',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'logo',
           src: 'img/awe-logo.png',
         },
         items: [
@@ -71,11 +71,20 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://cloudawesome.uk',
+            position: 'right',
+            label: 'Home',
+          },
+          {
+            href: 'https://github.com/Cloud-Awesome/',
             label: 'GitHub',
             position: 'right',
           },
         ],
+      },
+      colorMode: {
+        defaultMode: 'dark',
+        respectPrefersColorScheme: true
       },
       footer: {
         style: 'dark',
