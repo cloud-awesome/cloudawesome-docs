@@ -1,57 +1,40 @@
 # Introduction
 
-Mock framework to simulate Dataverse (Power Platform/Dynamics 365 CE) environments for unit testing
+Automate common, time-consuming and error-prone tasks during customisation and configuration of Dataverse (Dynamics 365/CDS)
 
-## Basic Usage
+## Features
 
-### IOrganizationService
+- [Register plugins from XML manifest](plugin-registration.md)
+    - Plugins, steps, service endpoints, workflow assemblies, webhooks
+    - Keep plugin registration details in source alongside the plugin assemblies so don't need to open the Plugin Reg Tool and configure manually
+- [Generate customisations from XML manifest](generate-customisation.md)
+    - Entities, forms, views, optionsets
+    - Security roles and field level security profiles
+    - Model driven apps and sitemap
+    - Quickly generate, test and tear down all artifacts during prototyping phases
+- [Migrate Bulk Deletion Jobs between environments](migrate-bulk-deletion-jobs.md)
+- [Toggle process status from XML manifest](toggle-process-activation.md)
+    - Activate/Deactivate processes specified individually, included in solutions, or parented by assembly
+    - Useful for data migrations/imports
+    - Include in source control which processes should be disabled (or which shouldn't be re-enabled)
+    - Supports plugin steps, workflows, modern flows and case creation rules
+- [Generate metadata and system configuration generation](documentation-generator.md)
+    - Output system documentation as a PDF or a series of Markdown documents (standard markdown, GitHub, Docusaurus, Confluence)
+    - Document entities and related data model, generating an entity relationship diagram 
+    - Security roles, workflows and cloud processes
+    - Generate documentation on a Power Pages site (sitemap, web roles and entity permissions hierarchy, etc.)
+- [Generate Power Pages (portal) content from a Visio diagram](portal-generation.md)
+    - Prototype your portal in a visio template and get business sign-off, add metadata to the pages then upload to generate:
+      - Web pages (url, page template, parent page, display order)
+      - Basic forms (page navigation, entity, system form)
 
-`Xrm.Simulate` exposes two extension methods to the IOrganizationService which mocks standard org service functionality and messages
+## Installation
 
-```csharp
-private readonly IOrganizationService _organizationService = null!;
+Two versions are available on Nuget.
 
-// Use .Simulate() to mock the IOrganizationService 
-// Use .Data() to access the mocked (in memory) data store
+1. To use a Console Application for stand alone use or for use within a pipeline install [CloudAwesome.Xrm.Customisation.Cli](https://www.nuget.org/packages/CloudAwesome.Xrm.Customisation.Cli/)
+2. To integrate the API into your own solution, install the [CloudAwesome.Xrm.Customisation](https://www.nuget.org/packages/CloudAwesome.Xrm.Customisation/) package
 
-[Test]
-public void Create_Contact_Saves_Record_To_Data_Store()
-{
-    var orgService = _organizationService.Simulate();
-    orgService.Data().Reinitialise();
-    
-    var contactId = orgService.Create(Arthur.Contact());
-    contactId.Should().NotBeEmpty();
+## Example usage
 
-    var contacts = orgService.Data().Get(Arthur.Contact().LogicalName);
-    contacts.Count.Should().Be(1);
-
-    contacts.FirstOrDefault()?.Id.Should().Be(contactId);
-}
-```
-
-Options can be injected to the mocked service to facilitate unit tests
-
-```csharp
-// Use ISimulatorOptions to inject 
-var mockSystemTime = new MockSystemTime(new DateTime(2020, 8, 16));
-
-var options = new SimulatorOptions
-{
-    ClockSimulator = mockSystemTime,
-    AuthenticatedUser = new Entity("systemuser", Guid.NewGuid())
-    {
-        Attributes =
-        {
-            ["fullname"] = "Lynda Archer"
-        }
-    }
-};
-
-var orgService = _organizationService.Simulate(options);
-
-```
-
-### Plugins
-
-In progress ...
+[[[ More documentation is en route! ;) ]]]
