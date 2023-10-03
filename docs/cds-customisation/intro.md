@@ -18,7 +18,7 @@ Automate common, time-consuming and error-prone tasks during customisation and c
     - Useful for data migrations/imports
     - Include in source control which processes should be disabled (or which shouldn't be re-enabled)
     - Supports plugin steps, workflows, modern flows and case creation rules
-- [Generate metadata and system configuration generation](documentation-generator.md)
+- [Generate metadata and system configuration documentation](documentation-generator.md)
     - Output system documentation as a PDF or a series of Markdown documents (standard markdown, GitHub, Docusaurus, Confluence)
     - Document entities and related data model, generating an entity relationship diagram 
     - Security roles, workflows and cloud processes
