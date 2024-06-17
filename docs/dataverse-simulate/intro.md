@@ -11,7 +11,6 @@ Mock framework to simulate Dataverse (Power Platform/Dynamics 365 CE) environmen
   - **IOrganizationServiceFactory** - Generates instances of IOrganizationService tailored to specific user or system contexts
   - **ILogger** - Logging interface to be used for adding telemetry to Azure Application Insights
   - **IServiceEndpointNotificationService** - Sends notifications to an external service, such as Azure Service Bus about system events, such as entity changes
-  - **ITransactionCurrencyService** - Retrieves the organization's base currency and convert currency values *(NOT YET IMPLEMENTED)*
   - **IOrganizationService** - Not typically recommended - Instead of using the service factory, retrieves the orgService running under the SYSTEM user context  *(NOT YET IMPLEMENTED)*
 
 To support functionality with the above, there are also four in memory data stores which simulate the functionality of Dataverse and related technologies
@@ -28,7 +27,7 @@ To support functionality with the above, there are also four in memory data stor
 `dataverse-simulate` exposes two extension methods to the `IOrganizationService` which mocks standard org service functionality and messages
 
 - Use `.Simulate()` to mock the IOrganizationService
-- Use `.Data()` to access the mocked (in memory) data store
+- Use `.Simulated()` to access the mocked entity data and related, in memory data such as logs and telemetry 
 
 ```csharp
 // This is never really accessed, it's only used to fluently access the simulate method
