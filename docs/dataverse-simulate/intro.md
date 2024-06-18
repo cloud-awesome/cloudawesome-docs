@@ -30,21 +30,18 @@ To support functionality with the above, there are also four in memory data stor
 - Use `.Simulated()` to access the mocked entity data and related, in memory data such as logs and telemetry 
 
 ```csharp
-// This is never really accessed, it's only used to fluently access the simulate method
+// This is never really accessed, it's only used to fluently access the simulate method in tests
 private readonly IOrganizationService _organizationService = null!;
 
 [Test]
 public void Create_Contact_Saves_Record_To_Data_Store()
 {
     // Create a mock of the org service
+    // Each call to `.Simulate` creates a fresh new mock
     var orgService = _organizationService.Simulate();
     
-    // The org service is a singleton - This permits set up and
-    //     configuration accross tests to improve performance
-    // `.Data.Reinitialise()` and it's overrides will reset configuration to it's intial set up
-    orgService.Data().Reinitialise();
-    
-    // Thereafter you can use any SDK methods on the org service as usual
+    // Thereafter you can use any SDK methods on the org service as usual,
+    //    or inject it into your code under test (sut)
     var contactId = orgService.Create(Arthur.Contact());
     
     // And use any testing frameworks you like to run assertions
@@ -52,17 +49,18 @@ public void Create_Contact_Saves_Record_To_Data_Store()
 
     // Instead of executing a query against the org service, 
     //    you can retrieve or query the in memory data directly
-    var contacts = orgService.Data().Get(Arthur.Contact().LogicalName);
+    //    using the `.Simulated` extension
+    var contacts = orgService.Simulated().Data().Get("contact");
     
     // And run your assertions on that data
     contacts.Count.Should().Be(1);
-    contacts.FirstOrDefault()?.Id.Should().Be(contactId);
+    contacts.SingleOrDefault()?.Id.Should().Be(contactId);
 }
 ```
 
 Options can be injected to the mocked service to facilitate unit tests
 
-Use the [SimulatorOptions](/dataverse-simulate/simulator-options) class to inject any configuration required by your tests,
+Use the [SimulatorOptions](simulator-options/simulator-options.md) class to inject any configuration required by your tests,
 such as system time, current authenticated user, or other business logic to trigger on SDK message execution.  
 
 ```csharp
@@ -88,19 +86,20 @@ var options = new SimulatorOptions
 // Pass the options when you simulate the org service
 var orgService = _organizationService.Simulate(options);
 
-// Thereafter you can use org service methods as usual
+// Thereafter you can use org service methods as usual,
+//    or inject it into your code under test (sut)
 var contactId = orgService.Create(Arthur.Contact());
-var contacts = orgService.Data().Get(Arthur.Contact().LogicalName);
+var contacts = orgService.Data().Get("contact");
     
 // And assert on configuration as expected
 contacts.Count.Should().Be(1);
-var createdContact = contacts.FirstOrDefault();
+var createdContact = contacts.SingleOrDefault()!;
 
-createdContact?.CreatedBy.Id.Should().Be(userId);
-createdContact?.ModifiedBy.Id.Should().Be(userId);
+createdContact.CreatedBy.Id.Should().Be(userId);
+createdContact.ModifiedBy.Id.Should().Be(userId);
 
-createdContact?.CreatedOn.Should().Be(systemTime);
-createdContact?.ModifiedOn.Id.Should().Be(systemTime);
+createdContact.CreatedOn.Should().Be(systemTime);
+createdContact.ModifiedOn.Id.Should().Be(systemTime);
 
 ```
 
@@ -128,26 +127,20 @@ public void Follow_Up_Plugin_Creates_Activity_Record()
     // All the other services you initialise in the plugin code will be mocked too 
     sut.Execute(service);
     
-    // You can use any of the 4 mocked data services to query outputs 
-    var dataService = new MockedEntityDataService();
-    var traceService  new MockedLogginService();
-    // var telemetryService = new MockedTelemetryService();
-    // var simulatorAudit = new SimulatorAuditService();
-    
-    // Retrieve data from the expected dataverse table
-    var activities = dataService.Get("task");
-    // Get all plugin traces
-    var pluginTraces = traceService.Get();
+    // The `.Simulated` extension exposes 4 mocked data services to query outputs
+    var tasks = service.Simulated().Data().Get("tasks");
+    var traces = service.Simulated().Logs().Get();
     
     // Then run your test assertions as usual
     tasks.Count.Should().Be(1);
-    tasks.FirstOrDefault()?.Subject.Should().Be("Follow up on your call");
-    pluginTraces.Count.Should().Be(4);
+    tasks.SingleOrDefault()!.Subject.Should().Be("Follow up on your call");
+    
+    traces.Count.Should().Be(2);
 }
 
 ```
 
-As with the org service, [SimulatorOptions](/dataverse-simulate/simulator-options) can be injected to the mocked service to facilitate unit tests
+As with the org service, [SimulatorOptions](simulator-options/simulator-options.md) can be injected to the mocked service to facilitate unit tests
 
 ```csharp
 private readonly IServiceProvider _serviceProvider = null!;
@@ -163,14 +156,10 @@ public void Follow_Up_Plugin_Creates_Activity_Record()
         // Set the plugin execution context, including the target entity of the triggered plugin
         // All other members of the `IPluginExecutionContext` such as registered message, 
         //    entity images, and stage can be set in here
-        // Use `MockedEntityDataService.Reinitialise(PluginExecutionContextMock executionContextMock)`
-        //    to reset only the execution context, but keep all other configuration (such as entity data)
         PluginExecutionContextMock = new PluginExecutionContextMock
         {
-            InputParameters = new ParameterCollection
-            {
-                new ("Target", new EntityReference(TestData.Contact().LogicalName, TestData.Contact().Id))
-            }
+            InputParameters = [ new("Target", new Entity("contact", Guid.NewGuid())) ],
+            PrimaryEntityName = "contact"
         }
     };
 
@@ -181,22 +170,19 @@ public void Follow_Up_Plugin_Creates_Activity_Record()
     var sut = new FollowUpPlugin();
     sut.Execute(service);
     
-    // You can use any of the mocked data services to query outputs 
-    var dataService = new MockedEntityDataService();
-    var traceService  new MockedLogginService();
-    
-    // Retrieve data from the expected dataverse table
-    var activities = dataService.Get("task");
+    // The `.Simulated` extension exposes 4 mocked data services to query outputs
+    var tasks = service.Simulated().Data().Get("tasks");
+    var traces = service.Simulated().Logs().Get();
     
     // Then run your test assertions as usual
     tasks.Count.Should().Be(1);
-    var followUpTask = tasks.FirstOrDefault();
+    var followUpTask = tasks.SingleOrDefault()!;
     
     // Plugin has processed the injected target Contact
-    followUpTask?.Subject.Should().Be("Follow up on your call with 'TestData Contact'");
-    followUpTask?.Regarding.Should.Be(TestData.Contact().ToEntityReference());
+    followUpTask.Subject.Should().Be("Follow up on your call with 'TestData Contact'");
+    followUpTask.Regarding.Should.Be(TestData.Contact().ToEntityReference());
     
     // Plugin has executed under the injected user
-    followUpTask?.OwnerId.Should.Be(TestData.SystemUser().ToEntityReference());
+    followUpTask.OwnerId.Should.Be(TestData.SystemUser().ToEntityReference());
 }
 ```

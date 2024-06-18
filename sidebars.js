@@ -34,6 +34,7 @@ const sidebars = {
             id: 'dataverse-simulate/simulator-options/simulator-options'
           },
           items: [
+            'dataverse-simulate/simulator-options/initialise-data',
             'dataverse-simulate/simulator-options/setting-system-time',
             'dataverse-simulate/simulator-options/setting-authenticated-user',
             'dataverse-simulate/simulator-options/setting-entity-processors',
