@@ -20,7 +20,7 @@ const sidebars = {
       label: 'dataverse-simulate',
       link: {
         type: "doc",
-        id: 'dataverse-simulate/intro'
+        id: 'dataverse-simulate/index'
       },
       items: [
         'dataverse-simulate/mocking-for-the-organization-service',
@@ -142,7 +142,7 @@ const sidebars = {
       label: 'markdown-maker',
       link: {
         type: "doc",
-        id: 'markdown-maker/intro'
+        id: 'markdown-maker/index'
       },
       items: [
         {
@@ -157,7 +157,7 @@ const sidebars = {
       label: 'cds-customisation',
       link: {
         type: "doc",
-        id: 'cds-customisation/intro'
+        id: 'cds-customisation/index'
       },
       items: [
         "cds-customisation/plugin-registration",
@@ -175,7 +175,7 @@ const sidebars = {
       label: 'portal-gds-accelerator',
       link: {
         type: "doc",
-        id: 'portal-gds-accelerator/intro'
+        id: 'portal-gds-accelerator/index'
       },
       items: [
         {
@@ -190,7 +190,7 @@ const sidebars = {
       label: 'portal-test-framework',
       link: {
         type: "doc",
-        id: 'portal-test-framework/intro'
+        id: 'portal-test-framework/index'
       },
       items: [
         {
@@ -205,7 +205,7 @@ const sidebars = {
       label: 'gds-wireframe-stencils',
       link: {
         type: "doc",
-        id: 'gds-wireframe-stencils/intro'
+        id: 'gds-wireframe-stencils/index'
       },
       items: [
         {
@@ -225,7 +225,7 @@ const sidebars = {
       label: 'Style guide',
       link: {
         type: "doc",
-        id: 'style-guide/intro'
+        id: 'style-guide/index'
       },
       items: [
         // Repos and code standards
