@@ -5,7 +5,7 @@ import Link from "@docusaurus/Link";
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  Svg: string;
   description: JSX.Element;
   href: string;
 };
@@ -13,7 +13,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'dataverse-simulate',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/dataverse-simulate.png').default,
     href: 'dataverse-simulate',
     description: (
       <>
@@ -23,7 +23,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'markdown-maker',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/markdown-maker.png').default,
     href: 'markdown-maker',
     description: (
       <>
@@ -33,7 +33,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'cds-customisation',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/cds-customisation.png').default,
     href: 'cds-customisation',
     description: (
       <>
@@ -42,8 +42,18 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    title: 'gds-wireframe-stencils',
+    Svg: require('@site/static/img/gds-wireframe-stencils.png').default,
+    href: 'gds-wireframe-stencils',
+    description: (
+        <>
+          Stencils to create GDS wireframes in Visio, PowerPoint etc. or print out to stick on the wall in a design workshop
+        </>
+    ),
+  },
+  {
     title: 'power-portal-gds-accelerator',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/power-portal-gds-accelerator.png').default,
     href: 'portal-gds-accelerator',
     description: (
         <>
@@ -53,21 +63,11 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'power-portal-test-framework',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/power-portal-test-framework.png').default,
     href: 'portal-test-framework',
     description: (
         <>
           Basic test framework extending selenium web driver for Power Pages
-        </>
-    ),
-  },
-  {
-    title: 'gds-wireframe-stencils',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    href: 'gds-wireframe-stencils',
-    description: (
-        <>
-          Stencils to create GDS wireframes in Visio, PowerPoint etc. or print out to stick on the wall in a design workshop
         </>
     ),
   },
@@ -77,7 +77,7 @@ function Feature({title, Svg, href, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <img src={Svg} className={styles.featureSvg} role="img" alt="image"/>
       </div>
       <div className="text--center padding-horiz--md">
         <Link to={href}><h3>{title}</h3></Link>
