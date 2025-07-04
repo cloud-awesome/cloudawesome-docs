@@ -1,18 +1,10 @@
 # Introduction
 
-[![Nuget](https://img.shields.io/nuget/v/CloudAwesome.MarkdownMaker)](https://www.nuget.org/packages/CloudAwesome.MarkdownMaker/)
-
-<!--
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=markdown-maker&metric=coverage)](https://sonarcloud.io/dashboard?id=markdown-maker)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=markdown-maker&metric=alert_status)](https://sonarcloud.io/dashboard?id=markdown-maker)
--->
-[![Build Status](https://dev.azure.com/cloud-awesome/CloudAwesome.Xrm/_apis/build/status/CloudAwesome.MarkdownMaker/publish-release-markdown?branchName=main)](https://dev.azure.com/cloud-awesome/CloudAwesome.Xrm/_build/latest?definitionId=9&branchName=main)
-
-Lightweight library to assist creation of .md files (in GitHub and/or DocFX flavours)
+`markdown-maker` is a lightweight library designed to help with creation/generation of markdown content, either in .md files or complex markdown strings.
 
 ## Example usage
 
-``` cs
+```cs
     
     // Everything starts with an MdDocument
     // Nothing is written to file system until calling the .Save() method
@@ -65,14 +57,6 @@ Lightweight library to assist creation of .md files (in GitHub and/or DocFX flav
         .AddItem("Build something")
         .AddItem("Test it")
         .AddItem("Push it");
-
-    // Include DocFX specific metadata. 
-    // TODO - First class support is coming in the future!        
-    var docfxMetadata = 
-        "---" + Environment.NewLine +
-        "uid: this_is_a_tester" + Environment.NewLine +
-        "---";
-    var docFxHeader = new MdPlainText(docfxMetadata);
     
     document
         .Add(docFxHeader)
@@ -86,10 +70,10 @@ Lightweight library to assist creation of .md files (in GitHub and/or DocFX flav
         .Add(numberedList)
         // Validate and save to file system
         .Save();
+        // Or just return the markdown content
+        // .ToString();
         
-    // See CloudAwesome.MarkdownMaker.Tests for more examples...
 ```
-
-
+See [CloudAwesome.MarkdownMaker.Tests](https://github.com/cloud-awesome/markdown-maker/tree/main/src/CloudAwesome.Markdown/CloudAwesome.MarkdownMaker.Tests) for more samples
 
 Any [bug reports or feature requests](https://github.com/Cloud-Awesome/markdown-maker/issues/new/choose) are greatly appreciated!
