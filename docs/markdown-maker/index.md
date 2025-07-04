@@ -1,6 +1,6 @@
 # Introduction
 
-`markdown-maker` is a lightweight library designed to help with creation/generation of markdown content, either in .md files or complex markdown strings.
+`markdown-maker` is a lightweight library designed to help with creation/generation of markdown content, either generating .md files or complex markdown strings that can be used in downstream logic.
 
 ## Example usage
 
