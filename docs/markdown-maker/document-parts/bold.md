@@ -1,6 +1,6 @@
 # Bold Text
 
-Non-breaking bold text. Input text can't be an empty string.
+Non-breaking **bold text**. Input text can't be an empty string.
 
 ```cs
 

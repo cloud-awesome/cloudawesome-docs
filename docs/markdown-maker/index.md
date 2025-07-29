@@ -49,11 +49,13 @@
                 .Add(new MdBoldText("important"))
                 .Add("instruction, which")
                 .Add(new MdItalicText("should"))
-                .Add("work.")
+                .Add("work. ")
+                .Add(new MdLink("See more", "https://google.com/search?q=markdown"))
         )
         .ToString();
     
-    // Output: "This is some **important** instruction, which _should_ work. \n"
+    // Output: 
+    // This is some **important** instruction, which _should_ work. [See more](https://google.com/search?q=markdown) \n
     
 ```
 
@@ -147,8 +149,10 @@
         .Add(numberedList)
         // Validate and save to file system
         .Save();
+        
         // Filepath can input/overwritten before generating output
         // .Save(outputFilePath);
+        
         // Or just return the markdown content
         // .ToString();
 
