@@ -1,13 +1,91 @@
 # Introduction
 
-`markdown-maker` is a lightweight library designed to help with creation/generation of markdown content, either generating .md files or complex markdown strings that can be used in downstream logic.
+`markdown-maker` is a lightweight library designed to help with creation/generation of markdown content, either in .md files or complex markdown strings to be used downstream in your application.
 
-## Example usage
+## Quick start
+
+### Create a .md on your local file system
 
 ```cs
     
+    var outputFilePath = "C:\\output.md";
+    var document = new MdDocument(outputFilePath);
+    
+    document
+        .Add(new MdHeader("This is a top level header", 1))
+        .Add(new MdHeader("This is a sub-heading", 2))
+        .Add(new MdParagraph("This is some standard paragraph text"))
+        .Save();
+        
+```
+
+### Create an in-memory markdown string
+
+```cs
+
+    var document = new MdDocument();
+    
+    document
+        .Add(new MdHeader("This is a top level header", 1))
+        .Add(new MdHeader("This is a sub-heading", 2))
+        .Add(new MdParagraph("This is some standard paragraph text"))
+        .ToString();
+    
+    // Use downstream in your application
+    // externalSystem.AddComment(document);
+    
+```
+
+### Mix text types within a paragraph
+
+```cs
+
+    var document = new MdDocument();
+    
+    document
+        .Add(
+            new MdParagraph()
+                .Add("This is some")
+                .Add(new MdBoldText("important"))
+                .Add("instruction, which")
+                .Add(new MdItalicText("should"))
+                .Add("work.")
+        )
+        .ToString();
+    
+    // Output: "This is some **important** instruction, which _should_ work. \n"
+    
+```
+
+### Generate multiple documents in a single folder
+
+```cs
+
+    // var sampleDataList = GetExternalDataSet();
+
+    var folderPath = "C:/OutputFolder/DataModel/";
+    var documentSet = new MdDocumentSet(folderPath);
+    
+    foreach (var sampleData in sampleDataList)
+    {
+        documentSet.AddDocument(
+            new MdDocument($"{sampleData.Name}.md")
+                .Add(new MdHeader(sampleData.Name, 1))
+                .Add(new MdParagraph(sampleData.Description))
+            );
+    }
+    
+    documentSet.Generate();
+
+```
+
+### Longer-form example
+
+```cs
+
     // Everything starts with an MdDocument
     // Nothing is written to file system until calling the .Save() method
+    
     var outputFilePath = "C:\\output.md";
     var document = new MdDocument(outputFilePath);
     
@@ -22,17 +100,17 @@
     table
         .AddRow(new MdTableRow()
             // Use AddCell ...
-            .AddCell("1")
-            .AddCell("2")
-            .AddCell("3"))
+            .AddCell("Column 1")
+            .AddCell("Column 2")
+            .AddCell("Column 3"))
         .AddRow(new MdTableRow
         {
             // ... or use a Cell object
             Cells =
             {
-                new MdPlainText("4"),
-                new MdPlainText("5"),
-                new MdPlainText("6")
+                new MdPlainText("Col 1, Row 1"),
+                new MdPlainText("Col 2, Row 1"),
+                new MdPlainText("Col 3, Row 1")
             }
         });
 
@@ -59,7 +137,6 @@
         .AddItem("Push it");
     
     document
-        .Add(docFxHeader)
         .Add(firstHeader)
         // Include markdown inline
         .Add(new MdParagraph("This is a paragraph of interesting text..."))
@@ -70,9 +147,11 @@
         .Add(numberedList)
         // Validate and save to file system
         .Save();
+        // Filepath can input/overwritten before generating output
+        // .Save(outputFilePath);
         // Or just return the markdown content
         // .ToString();
-        
+
 ```
 See [CloudAwesome.MarkdownMaker.Tests](https://github.com/cloud-awesome/markdown-maker/tree/main/src/CloudAwesome.Markdown/CloudAwesome.MarkdownMaker.Tests) for more samples
 
