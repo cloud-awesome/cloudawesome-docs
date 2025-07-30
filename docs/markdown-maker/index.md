@@ -59,6 +59,30 @@
     
 ```
 
+### Create a table in markdown format
+
+```cs
+
+    var document = new MdDocument();
+    
+    document
+        .Add(
+            new MdTable()
+                .AddColumns("First column", "Second column", "Third column", "Fourth column")
+                // columns can be added individually using .AddColumn()
+                .AddRowCells("Datum 1", "Datum 2", "Datum 3", "Datum 4")
+                // rows and cells can be added individually using .AddRow() and .AddCell()
+        )
+        .ToString();
+    
+    // Output: 
+    // | First column | Second column | Third column | Fourth column | 
+    // |---|---|---|---|
+    // | Datum 1 | Datum 2 | Datum 3 | Datum 4 | 
+    // 
+    
+```
+
 ### Generate multiple documents in a single folder
 
 ```cs
@@ -94,7 +118,7 @@
     var firstHeader = new MdHeader("The header", 1);
     
     var table = new MdTable()
-        // Define the table's columns. Others could be added later
+        // Define the table's columns. Others can be added later
         .AddColumn("First Column")
         .AddColumn("Second Column")
         .AddColumn("Third Column");
