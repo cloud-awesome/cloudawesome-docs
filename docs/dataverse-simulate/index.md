@@ -53,7 +53,6 @@ public void Create_Contact_Saves_Record_To_Data_Store()
     var contactId = _organizationService.Create(Arthur.Contact());
     
     // And use any testing frameworks you like to run assertions
-    // (Here I'm using FluentAssertions, which I love and highly recommend!)
     contactId.Should().NotBeEmpty();
 
     // Instead of executing a query against the org service, 
