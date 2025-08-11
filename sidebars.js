@@ -35,11 +35,15 @@ const sidebars = {
           },
           items: [
             'dataverse-simulate/simulator-options/initialise-data',
-            'dataverse-simulate/simulator-options/setting-system-time',
             'dataverse-simulate/simulator-options/setting-authenticated-user',
-            'dataverse-simulate/simulator-options/setting-entity-processors',
+            'dataverse-simulate/simulator-options/configure-user-business-unit',
             'dataverse-simulate/simulator-options/setting-plugin-context',
-            'dataverse-simulate/simulator-options/faking-service-failures'
+            'dataverse-simulate/simulator-options/setting-system-time',
+            'dataverse-simulate/simulator-options/setting-entity-processors',
+            'dataverse-simulate/simulator-options/configure-fiscal-year-settings',
+            'dataverse-simulate/simulator-options/configure-organization',
+            'dataverse-simulate/simulator-options/faking-service-failures',
+            'dataverse-simulate/simulator-options/simulate-security-model'
           ]
         },
         // data-stores
