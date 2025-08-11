@@ -1,3 +1,9 @@
+.featureCardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .features {
   display: flex;
   align-items: center;
@@ -8,4 +14,27 @@
 .featureSvg {
   height: 200px;
   width: 200px;
+}
+
+.featureTitle {
+  color: var(--ifm-color-primary);
+}
+
+/* Only the title shows a hover/focus affordance */
+.featureCardLink:hover .featureTitle,
+.featureCardLink:focus-visible .featureTitle {
+  text-decoration: underline;
+  text-underline-offset: 1px;
+}
+
+/* Ensure description never looks like a link */
+.featureDescription {
+  text-decoration: none;
+}
+
+/* Good keyboard outline without changing layout */
+.featureCardLink:focus-visible {
+  outline: 1px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: 2px; /* optional, match your design */
 }

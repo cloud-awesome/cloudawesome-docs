@@ -10,7 +10,7 @@ const config = {
   tagline: 'Documentation for each project available on NuGet and Github',
   favicon: 'img/awe-logo.png',
 
-  url: 'https://docs.cloudawesome.xyz',
+  url: 'https://docs.cloudawesome.uk',
   baseUrl: '/',
 
   organizationName: 'cloudawesome.uk',
