@@ -6,6 +6,8 @@ Pass through a `Dictionary<string, List<Entity>>` of mocked crm data (where the 
 
 :::info
 N.B. While adding data to the mocked data store using SDK requests also runs logic such as creating the primary GUID, setting created/modified by and on etc., the same logic is not run when initialising data here, so you have to ensure that any and all attributes should be set manually.   
+
+This requirement is intentional, so that developers retain complete control over the data fed into unit tests during set-up ("arrange"). The framework only dictates changes during execution ("act"), stimulating Dataverse.
 :::
 
 
