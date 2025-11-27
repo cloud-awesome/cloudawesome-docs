@@ -9,18 +9,21 @@ sidebar_position: 1
 ## Docs
 Create a new instance of `MdDocuFrontMatterDocs`, which implements `IFrontMatter` and populate any properties you require. 
 
-Any `null` properties left unpopulated will not be rendered in the output.
+This class included all properties currently supported by the docs plugin. Any `null` properties left unpopulated will not be rendered in the output.
 
 ```csharp
-var doc = new MdDocument();
-doc.Add(new MdFrontMatter(new MdDocuFrontMatterDocs
-{
-    title = "This is a doc title",
-    hide_title = true,
-    toc_min_heading_level = 4
-}));
-doc.Add(new MdHeader("This is a header", HeaderLevel.H1));
-var result = doc.ToString();
+MdDocument.Add(
+    new MdFrontMatter(
+        // highlight-start
+        new MdDocuFrontMatterDocs
+        {
+            title = "This is a doc title",
+            hide_title = true,
+            toc_min_heading_level = 4
+        }
+        // highlight-end
+    )
+);
 ```
 
 Will output the following markdown:

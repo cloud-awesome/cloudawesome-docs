@@ -52,9 +52,11 @@ Here is some content for the note.
 MdDocument.Add(
     new MdDocusaurusAdmonition(
         AdmonitionType.Note, 
+        // highlight-start
         new MdParagraph()
             .Add(new MdBoldText("Here is some content for the note."))
-            .Add(new MdLink("And here is an extra link", "https://google.co.uk")), 
+            .Add(new MdLink("And here is an extra link", "https://google.co.uk")),
+        //highlight-end 
         "Custom Title"
     )
 );
