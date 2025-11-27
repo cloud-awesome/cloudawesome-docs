@@ -51,6 +51,10 @@
   color: grey !important;
 }
 
+.hiddenSidebarItem {
+    display: none !important;
+}
+
 .footer {
   background-color: #242526;
 }
