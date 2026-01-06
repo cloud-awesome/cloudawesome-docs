@@ -70,6 +70,11 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
+          {
+            href: 'https://www.nuget.org/profiles/CloudAwesome/',
+            label: 'Nuget',
+            position: 'right',
+          },
         ],
       },
       colorMode: {
@@ -84,19 +89,15 @@ const config = {
             items: [
               {
                 label: 'CloudAwesome.Xrm.Simulate',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                href: 'https://www.nuget.org/packages/CloudAwesome.Xrm.Simulate',
               },
               {
                 label: 'MarkdownMaker',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://www.nuget.org/packages/CloudAwesome.MarkdownMaker',
               },
               {
-                label: 'CloudAwesome.Xrm.Customisation',
-                href: 'https://twitter.com/docusaurus',
-              },
-              {
-                label: 'CloudAwesome.Xrm.Core',
-                href: 'https://twitter.com/docusaurus',
+                label: 'CloudAwesome.Dataverse.Cli',
+                href: 'https://www.nuget.org/packages/CloudAwesome.Dataverse.Cli',
               },
             ],
           },
@@ -104,20 +105,16 @@ const config = {
             title: 'Source',
             items: [
               {
-                label: 'CloudAwesome.Xrm.Simulate',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'dataverse-simulate',
+                href: 'https://github.com/cloud-awesome/dataverse-simulate',
               },
               {
-                label: 'MarkdownMaker',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'markdown-maker',
+                href: 'https://github.com/cloud-awesome/markdown-maker',
               },
               {
-                label: 'CloudAwesome.Xrm.Customisation',
-                href: 'https://twitter.com/docusaurus',
-              },
-              {
-                label: 'CloudAwesome.Xrm.Core',
-                href: 'https://twitter.com/docusaurus',
+                label: 'dataverse-customisation',
+                href: 'https://github.com/cloud-awesome/dataverse-customisation',
               },
             ],
           },
@@ -135,10 +132,6 @@ const config = {
               {
                 label: 'GitHub',
                 href: 'https://github.com/Cloud-Awesome',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/arthur82',
               },
             ],
           },
