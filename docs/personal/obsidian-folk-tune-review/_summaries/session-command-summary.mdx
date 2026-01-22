@@ -1,0 +1,15 @@
+As an alternative to reviewing tunes selected by the CLI, you also get the opportunity to play tunes when others play them at sessions.
+
+If you take a list of the tunes played in a session in a text file (one tune per line), you can upload the file and the `last-reviewed` date will be updated for each tune.
+
+No review score is recorded against the tune but the `last-reviewed` date is later used to calculate when a review is due/overdue.
+
+:::tip Quick start
+
+As a minimum, navigate to the root directory of your vault and run the following command:
+
+```powershell
+tune-review --from-file "./path/to/file-listing-tunes-played-in-session.txt"
+```
+
+:::

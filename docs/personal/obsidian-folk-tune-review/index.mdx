@@ -1,0 +1,59 @@
+import ReviewCommandSummary from './_summaries/review-command-summary.mdx';
+import PickCommandSummary from './_summaries/pick-command-summary.mdx';
+import SessionCommandSummary from './_summaries/session-command-summary.mdx';
+import StatsCommandSummary from './_summaries/stats-command-summary.mdx';
+import AdminCommandsSummary from './_summaries/admin-commands-summary.mdx';
+
+# Introduction
+
+> Command-line application (CLI) that helps maintain a repertoire of already-learned folk tunes stored locally in an Obsidian vault.
+> 
+> The CLI selects a manageable number of tunes to review on a regular basis, records review state in the Obsidian vault, and supports filtering by tune metadata such as regional origin.
+
+## Installation
+
+:::tip Quick start
+
+To install the CLI on your machine, run the following command in a terminal:
+
+```powershell
+dotnet tool install --global CloudAwesome.FolkTune.Reviewer
+```
+
+N.B. To use the CLI after installation, you must have an existing Obsidian vault in the specified format, including a directory of tunes in markdown format and with the mandatory metadata in yaml front matter.
+
+:::
+
+See the [Installation page](./installation) for detailed pre-requisites and installation instructions.
+
+## Available commands
+
+### Review command
+
+<ReviewCommandSummary />
+
+See the [Review command page](./review-command) for more detailed information and granular command flags.
+
+### Pick command
+
+<PickCommandSummary />
+
+See the [Pick command page](./pick-command) for more detailed information and granular command flags.
+
+### Session command
+
+<SessionCommandSummary />
+
+See the [Session command page](./session-command) for more detailed information and granular command flags.
+
+### Stats command
+
+<StatsCommandSummary />
+
+See the [Stats command page](./stats-command) for more detailed information and granular command flags.
+
+### Admin commands
+
+<AdminCommandsSummary />
+
+See the [Admin commands page](./admin-commands) for more detailed information and granular command flags on each admin command.
