@@ -47,13 +47,13 @@ Details can be found here:
 - Keep contents of a page to a single subject, minimising scrolling
 - Always include a lead paragraph
 - Prefer a "what you need" page before each section
-- Get over your great of having too many pages - it's better than fewer long pages with lots of text and/or data entry
+- Get over your fear of having too many pages - it's better than fewer long pages with lots of text and/or data entry
 - Include "Check your answers" pages even if it's one page if it keeps the whole section consistent
 - Test your UX regularly and often with end users
 
 ## Feedback and Suggestions
 
-I'm always happy to receive [feedback](https://twitter.com/Arthur82), [questions, bug reports, or feature requests](https://github.com/Cloud-Awesome/power-portal-gds-accelerator/issues/new/choose)
+I'm always happy to receive [questions, bug reports, or feature requests](https://github.com/Cloud-Awesome/power-portal-gds-accelerator/issues/new/choose)
 
 Hope this repo helps someone get up and running faster and if there's something manual that is taking more time to get up and running, let me know!
 
