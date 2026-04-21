@@ -147,6 +147,6 @@ There is also an extension method to convert a `List<string>` to `MdList` markdo
     
     // Output:
     // 1. one
-    // 2. two
-    // 3. three
+    // 1. two
+    // 1. three
 ```
