@@ -126,3 +126,27 @@ Different list types can be used at different levels
     // 1. Item 4
     
 ```
+
+## Convert `List<string>` to MdList
+
+There is also an extension method to convert a `List<string>` to `MdList` markdown.
+
+```cs
+    var unorderedList = 
+        new List<string> {"one", "two", "three"}
+            .ToMdList(MdListType.Unordered);
+    
+    // Output:
+    // - one
+    // - two
+    // - three
+    
+    var orderedList = 
+        new List<string> {"one", "two", "three"}
+            .ToMdList(MdListType.Ordered);
+    
+    // Output:
+    // 1. one
+    // 2. two
+    // 3. three
+```
