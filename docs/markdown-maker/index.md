@@ -3,7 +3,7 @@
 `markdown-maker` is a lightweight library designed to help with creation/generation of markdown content, either in .md files or complex markdown strings to be used downstream in your application.
 
 ## Quick start
-TESTER
+
 ### Create a .md on your local file system
 
 ```cs
