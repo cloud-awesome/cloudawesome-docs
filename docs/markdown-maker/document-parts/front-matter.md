@@ -33,4 +33,4 @@ public class LastUpdate
 }
 ```
 
-Some implementations of `IFrontMatter` are provided in extension libraries, e.g. `CloudAwesome.MarkdownMaker.Docusarus` for the Docusaurus Blog, Docs and Pages APIs. See further documentaton in [Platform extensions](/platform-extensions)
+Some implementations of `IFrontMatter` are provided in extension libraries, e.g. `CloudAwesome.MarkdownMaker.Docusarus` for the Docusaurus Blog, Docs and Pages APIs. See further documentaton in [Platform extensions](../platform-extensions)
