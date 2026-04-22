@@ -36,8 +36,6 @@ toc_min_heading_level: 4
 ---
 
 # This is a header
-
-
 ```
 
 View the official [Docusaurus plugin docs](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter) for more information.

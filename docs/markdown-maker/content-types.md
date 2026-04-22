@@ -17,22 +17,20 @@ Content types which don't cause a carriage return and can be embedded within a s
 - [MdStrikethroughText](./document-parts/strikethrough.md)
 
 ```cs
+var document = new MdDocument();
 
-    var document = new MdDocument();
-    
-    document
-        .Add(
-            new MdParagraph()
-                .Add("This is some")
-                .Add(new MdBoldText("important"))
-                .Add("instruction, which")
-                .Add(new MdItalicText("should"))
-                .Add("work. ")
-                .Add(new MdLink("See more", "https://google.com/search?q=markdown"))
-        )
-        .ToString();
-    
-    // Output: 
-    // "This is some **important** instruction, which _should_ work. [See more](https://google.com/search?q=markdown) \n"
-    
+document
+    .Add(
+        new MdParagraph()
+            .Add("This is some")
+            .Add(new MdBoldText("important"))
+            .Add("instruction, which")
+            .Add(new MdItalicText("should"))
+            .Add("work. ")
+            .Add(new MdLink("See more", "https://google.com/search?q=markdown"))
+    )
+    .ToString();
+
+// Output: 
+// "This is some **important** instruction, which _should_ work. [See more](https://google.com/search?q=markdown) \n"
 ```

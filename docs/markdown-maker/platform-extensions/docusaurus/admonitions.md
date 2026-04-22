@@ -43,7 +43,6 @@ will output the following markdown:
 Here is some content for the note.
 
 :::
-
 ```
 
 ## Use MdParagraph or other `IDocumentPart`
@@ -68,7 +67,6 @@ will output the following markdown:
 **Here is some content for the note.** [And here is an extra link](https://google.co.uk) 
 
 :::
-
 ```
 
 The empty white spacing around the content is included to support [Prettier](https://prettier.io/) formatting as per [Docusaurus recommendation](https://docusaurus.io/docs/markdown-features/admonitions#usage-with-prettier). 
