@@ -6,11 +6,11 @@ An `MdDocument` is the base container for content.
 
 You can start with a new `MdDocument` instance and add to it as you progress through the logic of your application, or create all the required page components and add them to a new `MdDocument` instance at the end.
 
-The expected use case for`mardown-maker` is for a parent application to either query a database for required content and/or take user input and then create a markdown document based on the application's logic.
+The expected use case for `mardown-maker` is for a parent application to either query a database for required content and/or take user input and then create a markdown document based on the application's logic.
 
 An `MdDocument` instance can then either generate a .md file on your file system or you can use the generated markdown as a string to store where required.
 
-There are three constructors to use for your specific use case:
+There are three constructors available for your specific use case:
 1. `public MdDocument(string fileName)` : Provide a fileName to create a document on local file system. This can be used if you just want the markdown string, but the file name is ignored and is redundant.
 2. `public MdDocument()` : Use the empty constructor if all you want is the generated markdown string. An `InvalidOperationException` will be thrown if you try to save this to the file system.
 3. `public MdDocument(string fileName, IFileSystem fileSystem)` : Inject a mocked `IFileSystem` when writing unit tests.

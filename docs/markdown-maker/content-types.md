@@ -4,7 +4,7 @@
 
 All types which can be added directly to an `MdDocument`
 
-See 'Document Parts' list for details on each available component.  
+See the 'Document Parts' list for details on each available component.  
 
 ## ISingleLinePart
 
@@ -15,6 +15,8 @@ Content types which don't cause a carriage return and can be embedded within a s
 - [MdItalicText](./document-parts/italic.md)
 - [MdLink](./document-parts/link.md)
 - [MdStrikethroughText](./document-parts/strikethrough.md)
+
+All other types include a carriage return at the end of the line and (as appropriate) white space separators. 
 
 ```cs
 var document = new MdDocument();

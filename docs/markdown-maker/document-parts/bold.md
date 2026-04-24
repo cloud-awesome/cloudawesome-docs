@@ -1,6 +1,8 @@
 # Bold Text
 
-Non-breaking **bold text**. Input text can't be an empty string.
+Non-breaking **bold text**. 
+
+Input text can't be an empty string.
 
 ```cs
 var text = new MdBoldText("This is important text");
