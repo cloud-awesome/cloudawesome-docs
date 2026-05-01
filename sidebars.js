@@ -328,4 +328,6 @@ const sidebars = {
   ],
 };
 
-module.exports = sidebars;
+{
+  module.exports = sidebars;
+}

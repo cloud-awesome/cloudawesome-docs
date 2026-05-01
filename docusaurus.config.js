@@ -63,6 +63,11 @@ const config = {
             label: 'Docs',
           },
           {
+            to: '/build-monitor',
+            position: 'left',
+            label: 'Build Monitor',
+          },
+          {
             href: 'https://cloudawesome.uk',
             position: 'right',
             label: 'Home',
