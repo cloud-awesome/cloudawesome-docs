@@ -188,6 +188,7 @@ const sidebars = {
       items: [
         "react-build-monitor/dashboard-data-model",
         "react-build-monitor/custom-styling",
+        "react-build-monitor/sample-data-retrieval-functions",
       ]
     },
     // cds-customisation
