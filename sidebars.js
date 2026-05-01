@@ -177,6 +177,20 @@ const sidebars = {
         }
       ]
     },
+    // build-monitor
+    {
+      type: 'category',
+      label: 'build-monitor',
+      link: {
+        type: "doc",
+        id: 'react-build-monitor/index'
+      },
+      items: [
+        "react-build-monitor/dashboard-data-model",
+        "react-build-monitor/custom-styling",
+        "react-build-monitor/sample-data-retrieval-functions",
+      ]
+    },
     // cds-customisation
     {
       type: 'category',
