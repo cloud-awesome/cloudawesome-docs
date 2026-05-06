@@ -57,12 +57,15 @@ export default function BuildMonitor() {
           <div className="container">
             <header className="dashboard-example__header">
               <h1 className="dashboard-example__title">Build monitor</h1>
+              <p className="dashboard-example__intro">
+                This page displays the build and publish status of the latest builds for all repositories.
+              </p>
+              <p className="dashboard-example__intro">
+                The intention is to make transparent ongoing development and new releases so that users can see build status, releases and stale projects.
+              </p>
               <Admonition type="note" title="Work in progress">
                 <p className="dashboard-example__intro">
-                  This page displays the build and publish status of the latest builds for all repositories.
-                </p>
-                <p className="dashboard-example__intro">
-                  The intention is to make transparent ongoing development and new releases so that users can see build status, releases and stale projects.
+                  This page is still under development. The functionality will change over time and currently does not include all project covered by this site.
                 </p>
               </Admonition>
             </header>
