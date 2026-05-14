@@ -60,7 +60,7 @@ const sidebars = {
               label: 'Entity data',
               link: {
                 type: "doc",
-                id: 'dataverse-simulate/data-stores/entity-data/intro'
+                id: 'dataverse-simulate/data-stores/entity-data/index'
               },
               items: [
                 {
@@ -74,7 +74,7 @@ const sidebars = {
               label: 'Plugin traces',
               link: {
                 type: "doc",
-                id: 'dataverse-simulate/data-stores/plugin-traces/intro'
+                id: 'dataverse-simulate/data-stores/plugin-traces/index'
               },
               items: [
                 {
@@ -88,7 +88,7 @@ const sidebars = {
               label: 'Application telemetry',
               link: {
                 type: "doc",
-                id: 'dataverse-simulate/data-stores/application-telemetry/intro'
+                id: 'dataverse-simulate/data-stores/application-telemetry/index'
               },
               items: [
                 {
@@ -102,7 +102,7 @@ const sidebars = {
               label: 'Simulator audits',
               link: {
                 type: "doc",
-                id: 'dataverse-simulate/data-stores/simulator-audits/intro'
+                id: 'dataverse-simulate/data-stores/simulator-audits/index'
               },
               items: [
                 {
@@ -127,6 +127,7 @@ const sidebars = {
           ],
         },
         'dataverse-simulate/supported-sdk-messages',
+        'dataverse-simulate/inject-custom-organization-requests',
         // release-notes
         {
           type: 'category',
