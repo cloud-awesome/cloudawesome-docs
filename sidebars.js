@@ -333,6 +333,7 @@ const sidebars = {
         id: 'personal/obsidian-folk-tune-review/index'
       },
       items: [
+        "personal/obsidian-folk-tune-review/selection-logic",
         "personal/obsidian-folk-tune-review/review-command",
         "personal/obsidian-folk-tune-review/pick-command",
         "personal/obsidian-folk-tune-review/session-command",
