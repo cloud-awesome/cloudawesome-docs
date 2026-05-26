@@ -3,7 +3,7 @@
 The `review` and `pick` commands use the same selection process to choose a requested number of tunes. `pick` displays the resulting list, while `review` works through that list interactively and records the outcome.
 
 :::note
-When `review` is run for one specifically named tune, using the `--tune` flag, it opens that tune directly bypassing the scheduled selection logic.
+When `review` is run for one specifically named tune, using the `--tune` flag, it opens that tune directly, bypassing the scheduled selection logic.
 :::
 
 ## Which tunes can be selected?
