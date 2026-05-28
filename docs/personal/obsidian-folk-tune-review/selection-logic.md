@@ -1,18 +1,30 @@
 # Tune Selection Logic
 
-The `review` and `pick` commands use the same selection process to choose a requested number of tunes. `pick` displays the resulting list, while `review` works through that list interactively and records the outcome.
+The [`review`](review-command.mdx) and [`pick`](pick-command.mdx) commands use the same prioritisation logic to return a requested number of tunes for review. 
+
+The `pick` command displays the resulting list, while `review` works through that list interactively and records the outcome.
+
+## Summary
+
+Scheduled selection is intended to keep neglected repertoire in circulation. We want to avoid the "oh, I haven't played that in years" scenario in a session when you can't quite get your fingers to go where they once could.
+
+Tunes are prioritised in this order:
+
+1. **Orderdue tunes**: tunes that need attention now are chosen first;
+2. **Never-reviewed tunes**: tunes that have never been reviewed are introduced once known overdue items have been chosen; and
+3. **Tunes not yet due**: tunes that are still within their review interval can be included when there are spare places in the requested list.
 
 :::note
-When `review` is run for one specifically named tune, using the `--tune` flag, it opens that tune directly, bypassing the scheduled selection logic.
+When `review` is run for one specifically named tune, using the `--tune` flag, it opens that tune directly, bypassing this logic.
 :::
 
 ## Which tunes can be selected?
 
 The application starts with tune notes found in the vault, then removes tunes that are not candidates for review.
 
-A tune will be considered only when:
+A tune will only be considered when:
 
-- it has a unique `id`, so that its review history can be tracked by the CLI;
+- it has a unique `id`, so that the CLI database can track its review history;
 - it is flagged as having been learned in the note's metadata; and
 - it passes any review-store and origin filters described below.
 
@@ -22,10 +34,10 @@ In the tune note, `learn: true` means that the tune is still to be learned, so i
 
 By default, a tune is not selected when its review record says either of the following:
 
-- `exclude: true`: the tune has been deliberately removed from review selection.
+- `exclude: true`: the tune has been explicitly removed from review selection (e.g. it's one you know like the back of your hand).
 - `maintenance: "session"`: regular session playing is expected to maintain the tune. Some tunes are played all the time anyway, so you don't want them included in a review.
 
-The command options to include excluded tunes or session-maintained tunes override these rules independently. For example, including excluded tunes does not also include session-maintained tunes unless that option is supplied as well.
+The command options to include excluded tunes or session-maintained tunes override these rules independently. For example, including excluded tunes does not also include session-maintained tunes unless that flag is supplied as well.
 
 ### Filtering by origin
 
@@ -49,7 +61,6 @@ due date = most recent review or session date + interval in days
 
 Each tune can have its own interval in its review record. If it has no interval, the selection service uses the default interval, which is 365 days unless configured differently by its caller.
 
-A tune is due on its due date, not only after that date.
 
 ### Tunes with no review history
 
@@ -71,22 +82,14 @@ The current selection behaviour does not give priority to the least recently pla
 
 Suppose five tunes are requested and the eligible repertoire contains:
 
-| Tune | Status |
-| --- | --- |
-| Tune A | 90 days overdue |
-| Tune B | 12 days overdue |
-| Tune C | No review history |
-| Tune D | Not due yet |
-| Tune E | Not due yet |
+| Tune   | Status            |
+|--------|-------------------|
+| Tune A | No review history |
+| Tune B | 12 days overdue   |
+| Tune C | Not due yet       |
+| Tune D | 90 days overdue   |
+| Tune E | Not due yet       |
 
-The selected list will start with Tune A, followed by Tune B, then Tune C. Tunes D and E fill the final two places; their order is random.
+The selected list will start with Tune D, followed by Tune B, then Tune A. Tunes C and E fill the final two places – their order is random.
 
-## Summary
 
-Scheduled selection is intended to keep neglected repertoire in circulation:
-
-- tunes that need attention now are chosen first;
-- tunes that have never been reviewed are introduced once known overdue items have been chosen; and
-- tunes that are still within their review interval can be included when there are spare places in the requested list.
-
-Both `pick` and the normal `review` command receive this same ordered selection.
