@@ -13,7 +13,7 @@ const config = {
   favicon: 'img/awe-logo.png',
 
   url: 'https://docs.cloudawesome.uk',
-  baseUrl: '/',
+  baseUrl: '/cloudawesome-docs/',
 
   organizationName: 'cloudawesome.uk',
   projectName: 'cloudawesome-docs',
