@@ -9,9 +9,9 @@ This page translates the toolkit into a possible professional service descriptio
 
 The wording is deliberately provisional.
 
-# Positioning
+## Positioning
 
-## Benefits Architecture / Value-led Solution Architecture
+### Benefits Architecture / Value-led Solution Architecture
 
 > **Connect technology investment decisions to measurable business outcomes throughout Agile delivery.**
 
@@ -26,7 +26,7 @@ It is especially relevant where:
 - an architecture programme is technically governed but value measurement is weak;
 - benefits are expected after go-live but the solution is not instrumented to observe them.
 
-# Four service activities
+## Four service activities
 
 ```mermaid
 flowchart LR
@@ -39,7 +39,7 @@ flowchart LR
     AD -. learning .-> D
 ```
 
-## 1. Discover
+### 1. Discover
 
 Establish:
 
@@ -57,7 +57,7 @@ Primary output:
 - Objective and Benefits Map;
 - Benefit Hypothesis cards.
 
-## 2. Architect
+### 2. Architect
 
 Explore multiple interventions and make material technology choices using both architecture-quality and value criteria.
 
@@ -67,7 +67,7 @@ Primary output:
 - Value-aware ADRs;
 - architecture traceability.
 
-## 3. Instrument
+### 3. Instrument
 
 Design evidence across:
 
@@ -82,7 +82,7 @@ Primary output:
 - Benefit Observability Model;
 - telemetry / analytics requirements.
 
-## 4. Adapt
+### 4. Adapt
 
 Use empirical evidence during product delivery and operations to revisit:
 
@@ -97,9 +97,9 @@ Primary output:
 - decision updates;
 - revised backlog / ADRs where required.
 
-# Possible engagement shapes
+## Possible engagement shapes
 
-## Architecture Discovery
+### Architecture Discovery
 
 A short engagement before a major platform decision.
 
@@ -115,7 +115,7 @@ Outputs:
 - initial option assessment;
 - recommendation for discovery spikes.
 
-## Embedded Benefits Architect
+### Embedded Benefits Architect
 
 Architect participates within an existing Scrum product team.
 
@@ -127,7 +127,7 @@ Responsibilities include:
 - evidence interpretation;
 - architectural adaptation.
 
-## Architecture and Value Review
+### Architecture and Value Review
 
 A health check for an existing programme.
 
@@ -140,7 +140,7 @@ Questions include:
 - Are platform decisions still justified by current evidence?
 - Are technical enablers being mistaken for benefits?
 
-# What this service does not replace
+## What this service does not replace
 
 It does not replace:
 
@@ -158,7 +158,7 @@ Its distinctive responsibility is:
 
 > **maintaining the integrity, traceability, and observability of the technology-to-value argument.**
 
-# Candidate customer-facing principles
+## Candidate customer-facing principles
 
 These can be shared at engagement inception.
 

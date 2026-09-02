@@ -119,11 +119,11 @@ Primary artefacts:
 
 ---
 
-# Three feedback loops
+## Three feedback loops
 
 The model deliberately separates three cadences.
 
-## Delivery loop — days to weeks
+### Delivery loop — days to weeks
 
 ```mermaid
 flowchart LR
@@ -132,7 +132,7 @@ flowchart LR
 
 Primarily handled by Scrum.
 
-## Product/outcome loop — weeks to months
+### Product/outcome loop — weeks to months
 
 ```mermaid
 flowchart LR
@@ -141,7 +141,7 @@ flowchart LR
 
 This is where Benefits Architecture adds most day-to-day value.
 
-## Strategic benefit loop — months to quarters
+### Strategic benefit loop — months to quarters
 
 ```mermaid
 flowchart LR
@@ -150,7 +150,7 @@ flowchart LR
 
 This involves benefit owners, sponsors, Product Owners, and other accountable stakeholders.
 
-# Minimum lifecycle
+## Minimum lifecycle
 
 A typical engagement moves through the following activities.
 

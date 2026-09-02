@@ -130,7 +130,7 @@ This is particularly useful when comparing a Power Platform intervention with a 
 
 Reference: [Power Platform Well-Architected](https://learn.microsoft.com/en-us/power-platform/well-architected/pillars).
 
-# Practical rule
+## Practical rule
 
 Do not force all frameworks into a single mega-model.
 

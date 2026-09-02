@@ -18,7 +18,7 @@ Scrum already supplies:
 
 Benefits Architecture supplies additional semantics and evidence around those elements.
 
-# Suggested hierarchy
+## Suggested hierarchy
 
 ```mermaid
 flowchart TB
@@ -41,7 +41,7 @@ flowchart TB
 
 This is a conceptual hierarchy. Teams should map it onto their existing tooling only where doing so creates useful transparency.
 
-# Feature definition
+## Feature definition
 
 A Benefits Architecture Feature is:
 
@@ -58,7 +58,7 @@ A Feature should normally identify:
 - significant architecture dependencies;
 - material disbenefits or risks.
 
-## Feature readiness questions
+### Feature readiness questions
 
 Before substantial investment in a Feature:
 
@@ -69,7 +69,7 @@ Before substantial investment in a Feature:
 5. Is this the cheapest, fastest, safest or most reversible credible intervention we currently know?
 6. Can we deliver a smaller slice that produces useful evidence sooner?
 
-# Sprint Goals
+## Sprint Goals
 
 A Sprint should **preferably** advance one coherent Feature or a sensible slice of one, but this is not a rigid rule.
 
@@ -89,9 +89,9 @@ More empirical:
 
 > Validate that partners can self-register without staff intervention, targeting at least 80% successful completion in the pilot cohort.
 
-# Three Scrum-adjacent practices
+## Three Scrum-adjacent practices
 
-## 1. Benefit Framing
+### 1. Benefit Framing
 
 Use during discovery, inception, or early Product Goal work.
 
@@ -125,7 +125,7 @@ before asking:
 
 ---
 
-## 2. Benefit-aware Refinement
+### 2. Benefit-aware Refinement
 
 Do not create a separate recurring meeting if normal Product Backlog refinement can accommodate it.
 
@@ -142,25 +142,25 @@ This is also a suitable point for architecture spikes or option experiments.
 
 ---
 
-## 3. Evidence in Sprint Review
+### 3. Evidence in Sprint Review
 
 Add a short evidence layer to the normal Sprint Review.
 
 Discuss:
 
-### What did we deliver?
+#### What did we deliver?
 
 Demonstrate the usable increment.
 
-### What did we learn?
+#### What did we learn?
 
 User, technical, operational and architecture learning.
 
-### What happened to our measures?
+#### What happened to our measures?
 
 Report only evidence mature enough to be meaningful at this stage.
 
-### What changes because of this evidence?
+#### What changes because of this evidence?
 
 Possible answers include:
 
@@ -172,7 +172,7 @@ Possible answers include:
 - architecture;
 - intervention choice.
 
-# No orphan Features
+## No orphan Features
 
 Every material Feature should trace upward to an outcome and benefit.
 
@@ -191,7 +191,7 @@ flowchart LR
 
 The private endpoint does not require an invented standalone financial benefit.
 
-# No orphan Benefits
+## No orphan Benefits
 
 Every material Benefit should have a credible downward path to:
 

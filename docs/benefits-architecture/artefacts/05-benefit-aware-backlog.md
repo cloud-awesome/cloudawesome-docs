@@ -78,42 +78,42 @@ We believe this Feature will ...
 Describe the smallest production increment or experiment that can test a material assumption.
 ```
 
-# Work-item rules
+## Work-item rules
 
-## Rule 1 — No orphan material Features
+### Rule 1 — No orphan material Features
 
 Every material Feature should trace to an outcome.
 
-## Rule 2 — Do not monetise Stories artificially
+### Rule 2 — Do not monetise Stories artificially
 
 A Story can inherit purpose from its parent Feature.
 
-## Rule 3 — Enablers are legitimate
+### Rule 3 — Enablers are legitimate
 
 Technical work may exist several steps below a benefit. Maintain a credible chain rather than fabricating direct value.
 
-## Rule 4 — Backlog order may reflect learning value
+### Rule 4 — Backlog order may reflect learning value
 
 A lower-value Feature may be prioritised early if it cheaply resolves a high-risk assumption.
 
-## Rule 5 — Prefer coherent Sprint Goals
+### Rule 5 — Prefer coherent Sprint Goals
 
 Where practical, select PBIs that allow one meaningful Sprint Goal.
 
-# Suggested Azure DevOps mapping
+## Suggested Azure DevOps mapping
 
 One lightweight option:
 
-| Concept | Possible Azure DevOps representation |
-|---|---|
-| Objective | Epic, tag, wiki page, or external strategic item |
+| Concept            | Possible Azure DevOps representation             |
+|--------------------|--------------------------------------------------|
+| Objective          | Epic, tag, wiki page, or external strategic item |
 | Benefit Hypothesis | Markdown page / custom work item / linked record |
-| Outcome | Feature field, tag or linked item |
-| Epic | Epic |
-| Feature | Feature |
-| Story | User Story / Product Backlog Item |
-| Enabler | User Story/PBI with `Enabler` tag or custom type |
-| ADR | Repository Markdown linked from Feature |
-| Evidence | Dashboard + Evidence Log link |
+| Outcome            | Feature field, tag or linked item                |
+| Epic               | Epic                                             |
+| Feature            | Feature                                          |
+| Story              | User Story / Product Backlog Item                |
+| Enabler            | User Story/PBI with `Enabler` tag or custom type |
+| ADR                | Repository Markdown linked from Feature          |
+| Evidence           | Dashboard + Evidence Log link                    |
 
 Do not add custom work-item types until the team can show that the metadata will genuinely be maintained.

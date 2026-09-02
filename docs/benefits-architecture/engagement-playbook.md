@@ -7,7 +7,7 @@ sidebar_position: 7
 
 This page describes a lightweight way to introduce Benefits Architecture into a real engagement.
 
-# 1. Establish the mandate
+## 1. Establish the mandate
 
 Agree that the architect is not taking ownership of business benefits.
 
@@ -25,7 +25,7 @@ Clarify:
 - Scrum or delivery model;
 - available operational data.
 
-# 2. Run Benefit Framing
+## 2. Run Benefit Framing
 
 A first workshop should establish:
 
@@ -42,7 +42,7 @@ A first workshop should establish:
 
 Do not begin by whiteboarding products or Azure services.
 
-## Prompt set
+### Prompt set
 
 Useful questions include:
 
@@ -58,7 +58,7 @@ Useful questions include:
 - How quickly must useful value begin to emerge?
 - What evidence would make us stop or change direction?
 
-# 3. Produce the initial map
+## 3. Produce the initial map
 
 Create only enough detail to support decisions.
 
@@ -80,7 +80,7 @@ flowchart LR
 
 Record unresolved assumptions explicitly rather than hiding uncertainty.
 
-# 4. Establish baselines before solution design hardens
+## 4. Establish baselines before solution design hardens
 
 A benefit with no baseline is difficult to evaluate.
 
@@ -92,7 +92,7 @@ Where measurement does not yet exist, decide whether to:
 - derive a benchmark;
 - treat the first release as a baseline-building experiment.
 
-# 5. Explore interventions
+## 5. Explore interventions
 
 For each important outcome, identify multiple possible interventions where credible.
 
@@ -116,7 +116,7 @@ flowchart TB
 
 Do not compare detailed implementations before agreeing the decision criteria.
 
-# 6. Make value-aware architecture decisions
+## 6. Make value-aware architecture decisions
 
 Use a Value-aware ADR for material platform and architecture decisions.
 
@@ -134,7 +134,7 @@ Typical benefit-related criteria:
 - delivery risk;
 - WAF posture.
 
-# 7. Shape the backlog
+## 7. Shape the backlog
 
 Ensure Features carry meaningful outcome traceability.
 
@@ -147,7 +147,7 @@ Where possible:
 - Sprint Goals express coherent outcomes or learning;
 - evidence work is part of Definition of Done or Feature acceptance where appropriate.
 
-# 8. Instrument the causal chain
+## 8. Instrument the causal chain
 
 Create the Benefit Observability Model before production telemetry becomes expensive to retrofit.
 
@@ -163,7 +163,7 @@ Define:
 - cadence;
 - privacy / retention constraints.
 
-# 9. Inspect evidence
+## 9. Inspect evidence
 
 At Sprint Review, use evidence appropriate to the maturity of the intervention.
 
@@ -190,7 +190,7 @@ Later:
 - capacity;
 - customer outcomes.
 
-# 10. Revisit the intervention when necessary
+## 10. Revisit the intervention when necessary
 
 A credible architect-led benefits method must make stopping or changing direction acceptable.
 
@@ -206,7 +206,7 @@ Possible decisions include:
 - change process rather than software;
 - terminate an intervention whose value case no longer survives.
 
-# Suggested minimum engagement outputs
+## Suggested minimum engagement outputs
 
 For a modest product engagement, the minimum set could be:
 

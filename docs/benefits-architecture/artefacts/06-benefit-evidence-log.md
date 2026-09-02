@@ -30,7 +30,7 @@ This should support decisions, not become a diary.
 | Sprint 7      | Lower intervention reduces staff effort        | 95 → 61 min average effort           | Benefit emerging                     | Medium → High   | Expand pilot cohort        |
 | Sprint 10     | Automation can achieve under 40 min            | 47 min                               | Partial realisation                  | High → Medium   | Investigate exception path |
 
-# Evidence quality
+## Evidence quality
 
 Record enough context to distinguish:
 
@@ -43,7 +43,7 @@ Record enough context to distinguish:
 - controlled comparison;
 - longitudinal result.
 
-# Decision discipline
+## Decision discipline
 
 Evidence should be capable of producing a decision.
 
