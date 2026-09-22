@@ -269,7 +269,6 @@ const sidebars = {
         id: 'benefits-architecture/index'
       },
       items: [
-          "benefits-architecture/index",
           "benefits-architecture/principles",
           "benefits-architecture/operating-model",
           "benefits-architecture/roles-and-accountabilities",
