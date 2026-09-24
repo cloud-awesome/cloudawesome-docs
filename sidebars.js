@@ -263,7 +263,7 @@ const sidebars = {
     // benefits-architecture-framework
     {
       type: 'category',
-      label: 'Benefits architecture',
+      label: 'Benefits architecture toolkit',
       link: {
         type: "doc",
         id: 'benefits-architecture/index'
