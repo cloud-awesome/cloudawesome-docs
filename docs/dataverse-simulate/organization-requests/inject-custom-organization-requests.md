@@ -78,9 +78,9 @@ The handler receives two arguments:
 
 The context exposes:
 
-- `Data` - the [in-memory Dataverse data service](data-stores/entity-data)
-- `Audit` - the [simulator audit service](data-stores/simulator-audits)
-- `Options` - the [`SimulatorOptions`](simulator-options/simulator-options.md) used to configure the simulated organization service, if any
+- `Data` - the [in-memory Dataverse data service](../data-stores/entity-data)
+- `Audit` - the [simulator audit service](../data-stores/simulator-audits)
+- `Options` - the [SimulatorOptions](../simulator-options/simulator-options.md) used to configure the simulated organization service, if any
 
 Of course, the handler can be declared as an independent method, and then consumed by multiple tests.
 
