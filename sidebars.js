@@ -39,11 +39,13 @@ const sidebars = {
             'dataverse-simulate/simulator-options/configure-user-business-unit',
             'dataverse-simulate/simulator-options/setting-plugin-context',
             'dataverse-simulate/simulator-options/setting-system-time',
+            'dataverse-simulate/simulator-options/simulate-security-model',
+            'dataverse-simulate/simulator-options/queue-simulation',
             'dataverse-simulate/simulator-options/setting-entity-processors',
             'dataverse-simulate/simulator-options/configure-fiscal-year-settings',
             'dataverse-simulate/simulator-options/configure-organization',
             'dataverse-simulate/simulator-options/faking-service-failures',
-            'dataverse-simulate/simulator-options/simulate-security-model'
+
           ]
         },
         // data-stores
@@ -113,6 +115,43 @@ const sidebars = {
             },
           ]
         },
+        // organization-requests
+        {
+          type: 'category',
+          label: 'Organization requests',
+          link: {
+            type: "doc",
+            id: 'dataverse-simulate/organization-requests/supported-sdk-messages'
+          },
+          items: [
+            'dataverse-simulate/organization-requests/supported-sdk-messages',
+            'dataverse-simulate/organization-requests/inject-custom-organization-requests',
+          ]
+        },
+        // security-model
+        {
+          type: 'category',
+          label: 'Security model',
+          link: {
+            type: "doc",
+            id: 'dataverse-simulate/security-model/security-model'
+          },
+          items: [
+            'dataverse-simulate/security-model/security-model'
+          ]
+        },
+        // dataverse-metadata
+        {
+          type: 'category',
+          label: 'Dataverse metadata',
+          link: {
+            type: "doc",
+            id: 'dataverse-simulate/dataverse-metadata/dataverse-metadata'
+          },
+          items: [
+            'dataverse-simulate/dataverse-metadata/dataverse-metadata'
+          ]
+        },
         // entity-processors
         {
           type: 'category',
@@ -126,8 +165,6 @@ const sidebars = {
             'dataverse-simulate/entity-processors/update'
           ],
         },
-        'dataverse-simulate/supported-sdk-messages',
-        'dataverse-simulate/inject-custom-organization-requests',
         // release-notes
         {
           type: 'category',
