@@ -1,0 +1,8 @@
+{
+  "label": "Start here",
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "project-ops/start-here/index"
+  }
+}
