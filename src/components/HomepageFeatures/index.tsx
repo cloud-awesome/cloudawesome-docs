@@ -6,7 +6,7 @@ import Link from "@docusaurus/Link";
 type FeatureItem = {
   title: string;
   Svg: string;
-  description: JSX.Element;
+  description: React.ReactNode;
   href: string;
 };
 
@@ -89,7 +89,7 @@ function Feature({title, Svg, href, description}: FeatureItem) {
   );
 }
 
-export default function HomepageFeatures(): JSX.Element {
+export default function HomepageFeatures(): React.ReactElement {
   return (
       <section className={styles.features}>
         <div className="container">
