@@ -19,10 +19,12 @@ const config = {
   projectName: 'cloudawesome-docs',
 
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn'
+    }
   },
 
   themes: ['@docusaurus/theme-mermaid'],
