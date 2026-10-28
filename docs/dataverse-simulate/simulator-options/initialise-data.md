@@ -64,5 +64,5 @@ You must remember to set all the attributes that are required for your tests, su
 :::tip
 After initialisation, you can add a single record or in bulk using `.Simulated().Add(entityOrDictionary)`
 
-See [Entity data](../data-stores/entity-data/intro.md) for more information
+See [Entity data](../data-stores/entity-data/index.md) for more information
 :::
