@@ -44,6 +44,13 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
             'https://github.com/Cloud-Awesome/cloudawesome-docs/',
+          exclude: [
+            '**/AGENTS.md',
+            '**/_*.{js,jsx,ts,tsx,md,mdx}',
+            '**/_*/**',
+            '**/*.test.{js,jsx,ts,tsx}',
+            '**/__tests__/**',
+          ],
         },
         blog: false,
         theme: {
