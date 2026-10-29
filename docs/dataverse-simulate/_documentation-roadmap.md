@@ -164,7 +164,7 @@ dataverse-simulate/
 | Captured-output APIs | `assertions/` | Plugin and pattern pages use short examples and links. |
 | Support boundaries | Domain support matrices | Root limitations page summarizes and links; it does not repeat every matrix. |
 
-“Assertions” means examples using ordinary test-framework assertions over simulator output. Do not imply a new built-in assertion DSL exists.
+“Assertions” means examples using ordinary test-framework assertions over simulator output, and what helper functions are provided within the library to ease the construction of assertions regardless of test framework. Do not imply a new built-in assertion DSL exists.
 
 ## 5. Page-by-page backlog
 
@@ -172,95 +172,95 @@ Evidence IDs refer to the source register in section 11. All paths in this secti
 
 ### 5.1 Home, installation and support boundaries
 
-| Page | Planned content and acceptance criteria | Evidence |
-| --- | --- | --- |
-| `index.md` | Explain what the library simulates and why to use it; small plugin example; `.Simulate()` versus `.Simulated()`; configured example; free/open-source statement; links to the two entry-point guides and major capabilities. Remove unexplained `Arthur.Contact()` dependencies and “four stores” assumptions. | E01–E04, E10, E13, E18 |
-| `getting-started.md` | Package ID and installation command; local implementation's target framework; example language requirements; essential namespaces; test framework choice; links to complete first service/plugin tests. Do not present project version as the latest published release. | E01, E02, E18 |
-| `support-and-limitations.md` | Entry-point capability table; synchronous support; unsupported async interfaces in this checkout; the five provider service types; unsupported direct organization-service resolution; raw fixture access caveat; links to query, metadata, security and audit limitations. | E01–E04, E06–E10, E13 |
+| Page                         | Planned content and acceptance criteria                                                                                                                                                                                                                                                                        | Evidence               |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
+| `index.md`                   | Explain what the library simulates and why to use it; small plugin example; `.Simulate()` versus `.Simulated()`; configured example; free/open-source statement; links to the two entry-point guides and major capabilities. Remove unexplained `Arthur.Contact()` dependencies and “four stores” assumptions. | E01–E04, E10, E13, E18 |
+| `getting-started.md`         | Package ID and installation command; local implementation's target framework; example language requirements; essential namespaces; test framework choice; links to complete first service/plugin tests. Do not present project version as the latest published release.                                        | E01, E02, E18          |
+| `support-and-limitations.md` | Entry-point capability table; synchronous support; unsupported async interfaces in this checkout; the five provider service types; unsupported direct organization-service resolution; raw fixture access caveat; links to query, metadata, security and audit limitations.                                    | E01–E04, E06–E10, E13  |
 
 ### 5.2 Organization service and requests
 
-| Page | Planned content and acceptance criteria | Evidence |
-| --- | --- | --- |
-| `organization-service/index.md` | Complete minimal test; direct CRUD/association methods; `Execute`; available `.Simulated()` helpers; assign the returned `.Simulate()` value; cross-link lifecycle, configuration and assertions. Explain that only supported SDK behaviour is simulated. | E01, E03, E05 |
-| `organization-service/requests/index.md` | Matrix for all 29 registered types, grouped by core, batches, queues, security and metadata. Add request class/namespace, response type, prerequisites, behavioural scope, audit coverage and links. Explain unsupported request exceptions. | E01, E05, E09–E12 |
-| `organization-service/requests/core-requests.md` | Direct methods and equivalent request types; Create/Update/Delete/Retrieve/Associate/Disassociate, Assign and SetState; generated fields; selected-column retrieval; missing records, duplicate IDs and SDK fault shapes. Link to security, metadata, ownership and relationships rather than claiming complete Dataverse parity. | E05, E09, E10 |
-| `organization-service/requests/upsert.md` | Create/update selection; primary-ID precedence; `KeyAttributes`; metadata-declared keys; ambiguous matches; response `RecordCreated`/`Target`; processor invocation; input isolation and audit behaviour. Describe the current unmatched-key versus matching-key distinction precisely. | E05, E11 |
-| `organization-service/requests/batches-and-transactions.md` | ExecuteMultiple settings and response ordering; caught SDK faults versus other exceptions; ExecuteTransaction default response behaviour, rollback and fault indexes; nested-batch rejection. State the stores/model covered by rollback without promising rollback of arbitrary external custom-handler effects. | E12 |
-| `organization-service/requests/custom-requests.md` | Public registration API; complete request/response classes; typed response example; context data/options/audit access; CLR-type dispatch; duplicate/built-in registration rejection; unsupported request exception; registration scope; manual auditing. Fix the existing missing semicolon and avoid undefined supporting types. | E05, E11, E12 |
+| Page                                                        | Planned content and acceptance criteria                                                                                                                                                                                                                                                                                           | Evidence          |
+|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|
+| `organization-service/index.md`                             | Complete minimal test; direct CRUD/association methods; `Execute`; available `.Simulated()` helpers; assign the returned `.Simulate()` value; cross-link lifecycle, configuration and assertions. Explain that only supported SDK behaviour is simulated.                                                                         | E01, E03, E05     |
+| `organization-service/requests/index.md`                    | Matrix for all 29 registered types, grouped by core, batches, queues, security and metadata. Add request class/namespace, response type, prerequisites, behavioural scope, audit coverage and links. Explain unsupported request exceptions.                                                                                      | E01, E05, E09–E12 |
+| `organization-service/requests/core-requests.md`            | Direct methods and equivalent request types; Create/Update/Delete/Retrieve/Associate/Disassociate, Assign and SetState; generated fields; selected-column retrieval; missing records, duplicate IDs and SDK fault shapes. Link to security, metadata, ownership and relationships rather than claiming complete Dataverse parity. | E05, E09, E10     |
+| `organization-service/requests/upsert.md`                   | Create/update selection; primary-ID precedence; `KeyAttributes`; metadata-declared keys; ambiguous matches; response `RecordCreated`/`Target`; processor invocation; input isolation and audit behaviour. Describe the current unmatched-key versus matching-key distinction precisely.                                           | E05, E11          |
+| `organization-service/requests/batches-and-transactions.md` | ExecuteMultiple settings and response ordering; caught SDK faults versus other exceptions; ExecuteTransaction default response behaviour, rollback and fault indexes; nested-batch rejection. State the stores/model covered by rollback without promising rollback of arbitrary external custom-handler effects.                 | E12               |
+| `organization-service/requests/custom-requests.md`          | Public registration API; complete request/response classes; typed response example; context data/options/audit access; CLR-type dispatch; duplicate/built-in registration rejection; unsupported request exception; registration scope; manual auditing. Fix the existing missing semicolon and avoid undefined supporting types. | E05, E11, E12     |
 
 ### 5.3 Queries
 
-| Page | Planned content and acceptance criteria | Evidence |
-| --- | --- | --- |
-| `organization-service/queries/index.md` | Three supported query forms; feature matrix and condition-operator matrix derived from actual registries/parsers; projection, joins, ordering, distinct, paging, aggregates and explicit rejection cases. Include one small query and links to detailed pages. | E06–E08 |
-| `organization-service/queries/query-expression.md` | Filtering including nested AND/OR; columns and primary IDs; SDK value types; order before projection; distinct identity behaviour; `TopCount`; supported `AttributeExpressions`. Link to specialized pages for joins, paging and aggregates. | E06–E08 |
-| `organization-service/queries/query-by-attribute.md` | Attribute/value equality pairs combined with AND; columns, SDK value comparisons, ordering, top and paging. Do not imply arbitrary filter or join syntax is available. | E06, E07 |
-| `organization-service/queries/fetchxml.md` | Complete FetchExpression example; supported XML condition names and mappings; columns/default projection; nested filters and links; top/count/page/cookie options; aggregation links. Explicitly document rejected `entityname`, `valueof`, child `<value>` conditions and non-aggregate aliases. | E06–E08 |
-| `organization-service/queries/joins-and-aliases.md` | Inner/left-outer joins, nested/sibling links, `AliasedValue` shape, selected linked columns, link criteria and ordering. Explain unsupported joins, qualified inputs and Any/All filter links. Include readable examples of supported unqualified `LinkCriteria` and `LinkEntity.Orders`. | E06, E07, E09 |
-| `organization-service/queries/paging.md` | `PageInfo`, `MoreRecords`, `PagingCookie`, total counts and limit flag; default/capped page size 5,000; supported cookie query shapes; simulator-generated cookie restrictions; simple-paging offset boundary; incompatible `TopCount` combinations. Show a full continuation loop. | E07 |
-| `organization-service/queries/aggregates.md` | Sum/average/min/max/count/count-column; aliases and result value types; grouped/empty results; distinct count-column; date/fiscal grouping; aggregate record limits and failures. Cover both QueryExpression and FetchXML forms without implying every Dataverse aggregation option is available. | E08, E04 |
+| Page                                                 | Planned content and acceptance criteria                                                                                                                                                                                                                                                           | Evidence      |
+|------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| `organization-service/queries/index.md`              | Three supported query forms; feature matrix and condition-operator matrix derived from actual registries/parsers; projection, joins, ordering, distinct, paging, aggregates and explicit rejection cases. Include one small query and links to detailed pages.                                    | E06–E08       |
+| `organization-service/queries/query-expression.md`   | Filtering including nested AND/OR; columns and primary IDs; SDK value types; order before projection; distinct identity behaviour; `TopCount`; supported `AttributeExpressions`. Link to specialized pages for joins, paging and aggregates.                                                      | E06–E08       |
+| `organization-service/queries/query-by-attribute.md` | Attribute/value equality pairs combined with AND; columns, SDK value comparisons, ordering, top and paging. Do not imply arbitrary filter or join syntax is available.                                                                                                                            | E06, E07      |
+| `organization-service/queries/fetchxml.md`           | Complete FetchExpression example; supported XML condition names and mappings; columns/default projection; nested filters and links; top/count/page/cookie options; aggregation links. Explicitly document rejected `entityname`, `valueof`, child `<value>` conditions and non-aggregate aliases. | E06–E08       |
+| `organization-service/queries/joins-and-aliases.md`  | Inner/left-outer joins, nested/sibling links, `AliasedValue` shape, selected linked columns, link criteria and ordering. Explain unsupported joins, qualified inputs and Any/All filter links. Include readable examples of supported unqualified `LinkCriteria` and `LinkEntity.Orders`.         | E06, E07, E09 |
+| `organization-service/queries/paging.md`             | `PageInfo`, `MoreRecords`, `PagingCookie`, total counts and limit flag; default/capped page size 5,000; supported cookie query shapes; simulator-generated cookie restrictions; simple-paging offset boundary; incompatible `TopCount` combinations. Show a full continuation loop.               | E07           |
+| `organization-service/queries/aggregates.md`         | Sum/average/min/max/count/count-column; aliases and result value types; grouped/empty results; distinct count-column; date/fiscal grouping; aggregate record limits and failures. Cover both QueryExpression and FetchXML forms without implying every Dataverse aggregation option is available. | E08, E04      |
 
 ### 5.4 Plugins
 
-| Page | Planned content and acceptance criteria | Evidence |
-| --- | --- | --- |
-| `plugins/index.md` | Complete small `IPlugin` and test; supported provider services; passing options; explicit invocation of the plugin under test; output helpers. Explain that setting Stage or MessageName supplies context and does not create an automatic plugin-registration pipeline. | E02, E03, E13 |
-| `plugins/execution-context.md` | Options setup; Target as Entity/EntityReference; message, stage, depth, parameters, shared variables and entity images; identity/time sources; complete configurable/projected/generated/unsupported member table; context replacement and fresh service resolution. | E13 |
-| `plugins/organization-service-factory.md` | Obtain factory; `CreateOrganizationService` identity table for explicit GUID, `Guid.Empty` and `null`; required user records; connection versus effective identity; shared data/audits; isolated callers; SYSTEM bypass boundaries. Show assertions on the effective caller. | E01, E02, E09, E13 |
-| `plugins/tracing-and-telemetry.md` | Resolve `ITracingService` and plugin `ILogger`; supported calls; formatting expectations; minimal producer examples and links to log/telemetry assertion pages. Avoid claiming full Application Insights emulation. | E14 |
-| `plugins/service-endpoint-notifications.md` | Resolve and call notification service; required `serviceendpoint` reference; captured context JSON and simulated return string; limitations of endpoint delivery emulation; links to service-bus assertions and failure configuration. | E15 |
+| Page                                        | Planned content and acceptance criteria                                                                                                                                                                                                                                      | Evidence           |
+|---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| `plugins/index.md`                          | Complete small `IPlugin` and test; supported provider services; passing options; explicit invocation of the plugin under test; output helpers. Explain that setting Stage or MessageName supplies context and does not create an automatic plugin-registration pipeline.     | E02, E03, E13      |
+| `plugins/execution-context.md`              | Options setup; Target as Entity/EntityReference; message, stage, depth, parameters, shared variables and entity images; identity/time sources; complete configurable/projected/generated/unsupported member table; context replacement and fresh service resolution.         | E13                |
+| `plugins/organization-service-factory.md`   | Obtain factory; `CreateOrganizationService` identity table for explicit GUID, `Guid.Empty` and `null`; required user records; connection versus effective identity; shared data/audits; isolated callers; SYSTEM bypass boundaries. Show assertions on the effective caller. | E01, E02, E09, E13 |
+| `plugins/tracing-and-telemetry.md`          | Resolve `ITracingService` and plugin `ILogger`; supported calls; formatting expectations; minimal producer examples and links to log/telemetry assertion pages. Avoid claiming full Application Insights emulation.                                                          | E14                |
+| `plugins/service-endpoint-notifications.md` | Resolve and call notification service; required `serviceendpoint` reference; captured context JSON and simulated return string; limitations of endpoint delivery emulation; links to service-bus assertions and failure configuration.                                       | E15                |
 
 ### 5.5 Configuration and entity processors
 
-| Page | Planned content and acceptance criteria | Evidence |
-| --- | --- | --- |
-| `configuration/index.md` | Full 13-property `ISimulatorOptions`/`SimulatorOptions` table: types, defaults, initialization timing, affected entry points and canonical setup links. Describe available domain builders without inventing a universal fluent options builder. | E03, E04 |
-| `configuration/data.md` | Single/bulk fixtures through `InitialiseData`; IDs and required fixture attributes; raw seeding versus SDK Create; dictionary replacement; seeded reference records; `InitialiseRelationships` and `SetRelationship`; existence prerequisites and security bypass implications. | E04, E05 |
-| `configuration/identity.md` | AuthenticatedUser, BusinessUnit and Organization; default records; queryable seeded rows; explicit IDs and required links; relationship between these options, plugin context and security-model principals. Link to factory identity semantics. | E04, E09, E13 |
-| `configuration/time-and-fiscal-settings.md` | `MockSystemTime`, `IClockSimulator`, initialization-time capture, generated timestamps and relative date queries; fiscal start month, start/end-year naming and prefix with defaults; examples linked to aggregate grouping. | E04, E08 |
-| `configuration/service-failures.md` | Five provider-null switches; request exception settings and exact request names; `FailingRecords`; default exception; per-record versus whole-request failure; unsupported-request/custom-handler boundaries; assertion recipes. | E16 |
-| `configuration/test-isolation.md` | New simulation per test; instance-scoped stores; factory services sharing state; supplied data-service reset; mutable fixtures/options; each `Reinitialise` overload's actual behaviour; distinguish context replacement from full reset and recommend fresh simulation for a full reset. | E01, E02, E04, E05, E13 |
-| `entity-processors/index.md` | `IEntityProcessor.Process(Entity)` and dictionary registration by `ProcessorType`; only Create/Update messages; dependent-business-rule use case; processing order and scope; Upsert selects the underlying processor. | E05, E11, E17 |
-| `entity-processors/create.md` | Complete Create processor and test arrangement; input after framework preprocessing/defaults; output committed through ownership processing; cloned service boundary; limitations. Correct the current “Update” heading. | E05, E17 |
-| `entity-processors/update.md` | Complete Update processor; patch semantics rather than assuming a full stored record; validation and invocation order; raw-store update distinction. Correct the current “Create” heading. | E05, E17 |
+| Page                                        | Planned content and acceptance criteria                                                                                                                                                                                                                                                   | Evidence                |
+|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
+| `configuration/index.md`                    | Full 13-property `ISimulatorOptions`/`SimulatorOptions` table: types, defaults, initialization timing, affected entry points and canonical setup links. Describe available domain builders without inventing a universal fluent options builder.                                          | E03, E04                |
+| `configuration/data.md`                     | Single/bulk fixtures through `InitialiseData`; IDs and required fixture attributes; raw seeding versus SDK Create; dictionary replacement; seeded reference records; `InitialiseRelationships` and `SetRelationship`; existence prerequisites and security bypass implications.           | E04, E05                |
+| `configuration/identity.md`                 | AuthenticatedUser, BusinessUnit and Organization; default records; queryable seeded rows; explicit IDs and required links; relationship between these options, plugin context and security-model principals. Link to factory identity semantics.                                          | E04, E09, E13           |
+| `configuration/time-and-fiscal-settings.md` | `MockSystemTime`, `IClockSimulator`, initialization-time capture, generated timestamps and relative date queries; fiscal start month, start/end-year naming and prefix with defaults; examples linked to aggregate grouping.                                                              | E04, E08                |
+| `configuration/service-failures.md`         | Five provider-null switches; request exception settings and exact request names; `FailingRecords`; default exception; per-record versus whole-request failure; unsupported-request/custom-handler boundaries; assertion recipes.                                                          | E16                     |
+| `configuration/test-isolation.md`           | New simulation per test; instance-scoped stores; factory services sharing state; supplied data-service reset; mutable fixtures/options; each `Reinitialise` overload's actual behaviour; distinguish context replacement from full reset and recommend fresh simulation for a full reset. | E01, E02, E04, E05, E13 |
+| `entity-processors/index.md`                | `IEntityProcessor.Process(Entity)` and dictionary registration by `ProcessorType`; only Create/Update messages; dependent-business-rule use case; processing order and scope; Upsert selects the underlying processor.                                                                    | E05, E11, E17           |
+| `entity-processors/create.md`               | Complete Create processor and test arrangement; input after framework preprocessing/defaults; output committed through ownership processing; cloned service boundary; limitations. Correct the current “Update” heading.                                                                  | E05, E17                |
+| `entity-processors/update.md`               | Complete Update processor; patch semantics rather than assuming a full stored record; validation and invocation order; raw-store update distinction. Correct the current “Create” heading.                                                                                                | E05, E17                |
 
 ### 5.6 Security
 
-| Page | Planned content and acceptance criteria | Evidence |
-| --- | --- | --- |
-| `security/index.md` | Small working setup and denial example; optional enforcement; complete-model requirements; `IgnoreMissingEntities` default and strict setup; supported model implementation; supported/unsupported security scope. Replace blanket “in development” claims. | E09 |
-| `security/model-and-privileges.md` | Eight privileges and None/User/BusinessUnit/ParentChild/Organization depths; business-unit hierarchy, users, validation, table versus record checks; direct retrieval denial versus query filtering; linked-row security before downstream query processing. | E09 |
-| `security/roles-and-teams.md` | Named roles, user/team assignments, owner/access team distinctions, membership, privilege merging, XML import variants and logical-name overrides; seeded principal/role/membership rows; business-unit-specific role instances and role associations. | E09 |
-| `security/sharing.md` | Grant/modify/revoke, retrieve principal/shared access; user/team shares; required table privileges; share permissions; state changes in the configured security model and prerequisite records. Avoid implying a share creates missing table privileges. | E09 |
-| `security/ownership.md` | Default owner and derived owning fields; Assign and owner changes via Update/Upsert; owner teams and assignee requirements; required caller/new-owner permissions; organization-owned tables; unsupported independent owning-business-unit changes and modernized ownership. | E09 |
+| Page                               | Planned content and acceptance criteria                                                                                                                                                                                                                                      | Evidence |
+|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| `security/index.md`                | Small working setup and denial example; optional enforcement; complete-model requirements; `IgnoreMissingEntities` default and strict setup; supported model implementation; supported/unsupported security scope. Replace blanket “in development” claims.                  | E09      |
+| `security/model-and-privileges.md` | Eight privileges and None/User/BusinessUnit/ParentChild/Organization depths; business-unit hierarchy, users, validation, table versus record checks; direct retrieval denial versus query filtering; linked-row security before downstream query processing.                 | E09      |
+| `security/roles-and-teams.md`      | Named roles, user/team assignments, owner/access team distinctions, membership, privilege merging, XML import variants and logical-name overrides; seeded principal/role/membership rows; business-unit-specific role instances and role associations.                       | E09      |
+| `security/sharing.md`              | Grant/modify/revoke, retrieve principal/shared access; user/team shares; required table privileges; share permissions; state changes in the configured security model and prerequisite records. Avoid implying a share creates missing table privileges.                     | E09      |
+| `security/ownership.md`            | Default owner and derived owning fields; Assign and owner changes via Update/Upsert; owner teams and assignee requirements; required caller/new-owner permissions; organization-owned tables; unsupported independent owning-business-unit changes and modernized ownership. | E09      |
 
 ### 5.7 Metadata and queues
 
-| Page | Planned content and acceptance criteria | Evidence |
-| --- | --- | --- |
-| `metadata/index.md` | Small metadata-backed example; permissive operation without metadata versus configured validation; links to load, inspect, validate and retrieve metadata; explain that metadata is not a live environment connection. | E10 |
-| `metadata/loading.md` | Contract version `1.0`; inline `entities` and split `entityFiles`; relative file resolution; complete minimal JSON fixture; `SimulatedMetadata.Load`, options injection and org-service `.Metadata().Load`; `Current`/`IsLoaded`; error conditions. For plugins use options or a factory-created service, since the provider facade has no `Metadata()` helper. | E03, E10 |
-| `metadata/validation.md` | Enforced entity/attribute existence, create/update/read flags, required-create rules, lengths, numeric range/precision, lookup target types, options, state/status defaults and validation; query validation; queue capability. Explicitly separate parsed/projected fields from enforced behaviour, including `IsSecured` and `ValidMessages`. | E10, E06, E08 |
-| `metadata/retrieving.md` | Four SDK metadata retrieval requests, typed results, supported selectors/filters, configured metadata prerequisite and lack of table-read security requirement. Do not imply full SDK metadata fidelity or selector support without inspecting each handler/projection. | E10 |
-| `queue-management/index.md` | Supported queue lifecycle and two entry styles: `.Simulated().Queues()` helpers and SDK requests. Small example and links to setup/operations/assertions. | E03, E08 |
-| `queue-management/setup.md` | `SimulatedQueueModel`, WithQueue/WithQueueItem overloads, required target/worker/queue records, seeded rows/defaults, duplicate/conflicting IDs, metadata prerequisites and security setup. | E08, E09, E10 |
-| `queue-management/operations.md` | Add/move/pick/release/remove/route; response shapes, worker/remove flags, route targets, required privileges, faults and audits. Show identity-preserving moves and consistent helper/SDK behaviour. Use the current consistency tests rather than assuming older test names fully describe the implementation. | E08 |
+| Page                             | Planned content and acceptance criteria                                                                                                                                                                                                                                                                                                                         | Evidence      |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| `metadata/index.md`              | Small metadata-backed example; permissive operation without metadata versus configured validation; links to load, inspect, validate and retrieve metadata; explain that metadata is not a live environment connection.                                                                                                                                          | E10           |
+| `metadata/loading.md`            | Contract version `1.0`; inline `entities` and split `entityFiles`; relative file resolution; complete minimal JSON fixture; `SimulatedMetadata.Load`, options injection and org-service `.Metadata().Load`; `Current`/`IsLoaded`; error conditions. For plugins use options or a factory-created service, since the provider facade has no `Metadata()` helper. | E03, E10      |
+| `metadata/validation.md`         | Enforced entity/attribute existence, create/update/read flags, required-create rules, lengths, numeric range/precision, lookup target types, options, state/status defaults and validation; query validation; queue capability. Explicitly separate parsed/projected fields from enforced behaviour, including `IsSecured` and `ValidMessages`.                 | E10, E06, E08 |
+| `metadata/retrieving.md`         | Four SDK metadata retrieval requests, typed results, supported selectors/filters, configured metadata prerequisite and lack of table-read security requirement. Do not imply full SDK metadata fidelity or selector support without inspecting each handler/projection.                                                                                         | E10           |
+| `queue-management/index.md`      | Supported queue lifecycle and two entry styles: `.Simulated().Queues()` helpers and SDK requests. Small example and links to setup/operations/assertions.                                                                                                                                                                                                       | E03, E08      |
+| `queue-management/setup.md`      | `SimulatedQueueModel`, WithQueue/WithQueueItem overloads, required target/worker/queue records, seeded rows/defaults, duplicate/conflicting IDs, metadata prerequisites and security setup.                                                                                                                                                                     | E08, E09, E10 |
+| `queue-management/operations.md` | Add/move/pick/release/remove/route; response shapes, worker/remove flags, route targets, required privileges, faults and audits. Show identity-preserving moves and consistent helper/SDK behaviour. Use the current consistency tests rather than assuming older test names fully describe the implementation.                                                 | E08           |
 
 ### 5.8 Assertions, patterns and releases
 
-| Page | Planned content and acceptance criteria | Evidence |
-| --- | --- | --- |
-| `assertions/index.md` | Output capability matrix by entry point; arrange/act/assert example; `Audit()` versus `Audits()`; five captured-output categories; fixtures versus observed SDK output. | E03, E05, E14, E15 |
-| `assertions/data.md` | Get-all/table/ID/reference/typed overloads; mutable raw entities; typed retrieval constraints; direct add/upsert/update/delete caveats; no SDK security or metadata validation; ID/timestamp assertions and service-result isolation. | E05 |
-| `assertions/audits.md` | Entry-point spelling; message/ID filters; record shape; clear; per-operation coverage matrix; successful versus failed operations; batch/transaction rollback; manual custom-handler audit entries. Never describe this as an automatic journal of every request. | E05, E11, E12 |
-| `assertions/logs.md` | Get all, substring filtering, clear, formatted trace messages and ordering; a complete plugin trace assertion. | E14 |
-| `assertions/telemetry.md` | Get all/by level/by exact template, clear; `MessageFormat`, `Args`, `LogLevel`, `FormattedMessage`; supported logger calls and formatting limitations. | E14 |
-| `assertions/service-bus.md` | Get all/by substring, clear; captured context JSON; meaningful assertions on payloads; fields omitted by serialization and no real delivery guarantee. | E15 |
-| `patterns/index.md` | Small catalogue linking to specific recipes and the underlying reference pages. Do not duplicate API inventories. | Relevant domain evidence |
-| `patterns/fixtures.md` | Fresh simulator per test, shared fixture construction with isolated state, early/late-bound records, metadata fixture files, coherent security identities; cross-link reset caveats. | E01–E05, E09, E10 |
-| `patterns/dependent-behaviour.md` | Choosing a processor versus custom request versus direct fixture setup; table-driven arrangements; plugin-context examples; clearly scoped simulation of dependencies. | E11, E13, E17 |
-| `patterns/failure-paths.md` | Missing provider service, injected request failure, security denial, metadata rejection and transaction rollback, each with an appropriate assertion. | E09, E10, E12, E16 |
+| Page                                                | Planned content and acceptance criteria                                                                                                                                                                                                                                                                    | Evidence                                |
+|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| `assertions/index.md`                               | Output capability matrix by entry point; arrange/act/assert example; `Audit()` versus `Audits()`; five captured-output categories; fixtures versus observed SDK output.                                                                                                                                    | E03, E05, E14, E15                      |
+| `assertions/data.md`                                | Get-all/table/ID/reference/typed overloads; mutable raw entities; typed retrieval constraints; direct add/upsert/update/delete caveats; no SDK security or metadata validation; ID/timestamp assertions and service-result isolation.                                                                      | E05                                     |
+| `assertions/audits.md`                              | Entry-point spelling; message/ID filters; record shape; clear; per-operation coverage matrix; successful versus failed operations; batch/transaction rollback; manual custom-handler audit entries. Never describe this as an automatic journal of every request.                                          | E05, E11, E12                           |
+| `assertions/logs.md`                                | Get all, substring filtering, clear, formatted trace messages and ordering; a complete plugin trace assertion.                                                                                                                                                                                             | E14                                     |
+| `assertions/telemetry.md`                           | Get all/by level/by exact template, clear; `MessageFormat`, `Args`, `LogLevel`, `FormattedMessage`; supported logger calls and formatting limitations.                                                                                                                                                     | E14                                     |
+| `assertions/service-bus.md`                         | Get all/by substring, clear; captured context JSON; meaningful assertions on payloads; fields omitted by serialization and no real delivery guarantee.                                                                                                                                                     | E15                                     |
+| `patterns/index.md`                                 | Small catalogue linking to specific recipes and the underlying reference pages. Do not duplicate API inventories.                                                                                                                                                                                          | Relevant domain evidence                |
+| `patterns/fixtures.md`                              | Fresh simulator per test, shared fixture construction with isolated state, early/late-bound records, metadata fixture files, coherent security identities; cross-link reset caveats.                                                                                                                       | E01–E05, E09, E10                       |
+| `patterns/dependent-behaviour.md`                   | Choosing a processor versus custom request versus direct fixture setup; table-driven arrangements; plugin-context examples; clearly scoped simulation of dependencies.                                                                                                                                     | E11, E13, E17                           |
+| `patterns/failure-paths.md`                         | Missing provider service, injected request failure, security denial, metadata rejection and transaction rollback, each with an appropriate assertion.                                                                                                                                                      | E09, E10, E12, E16                      |
 | `release-notes/index.md` and verified version pages | Replace template content with evidence-backed release information. Record provenance for each release. If release history cannot be established locally, keep the category unpublished and track the missing evidence here; do not invent a release or call all current behaviour `1.1.1` release content. | E18 and owner-supplied release evidence |
 
 ## 6. API coverage checkpoints
@@ -269,17 +269,17 @@ Evidence IDs refer to the source register in section 11. All paths in this secti
 
 This matrix is verified against the two public facade classes at the audit snapshot.
 
-| Helper | Organization service | Service provider |
-| --- | --- | --- |
-| Entity data | `Data()` | `Data()` |
-| Simulator audits | `Audit()` | `Audits()` |
-| Traces | — | `Logs()` |
-| Telemetry | — | `Telemetry()` |
-| Endpoint message capture | — | `ServiceBus()` |
-| Queue operations | `Queues()` | `Queues()` |
-| Metadata loading/inspection | `Metadata()` | — |
-| Security model builder | `SecurityModel()` | — |
-| Custom request registration | `CustomOrgRequests()` | — |
+| Helper                      | Organization service  | Service provider |
+|-----------------------------|-----------------------|------------------|
+| Entity data                 | `Data()`              | `Data()`         |
+| Simulator audits            | `Audit()`             | `Audits()`       |
+| Traces                      | —                     | `Logs()`         |
+| Telemetry                   | —                     | `Telemetry()`    |
+| Endpoint message capture    | —                     | `ServiceBus()`   |
+| Queue operations            | `Queues()`            | `Queues()`       |
+| Metadata loading/inspection | `Metadata()`          | —                |
+| Security model builder      | `SecurityModel()`     | —                |
+| Custom request registration | `CustomOrgRequests()` | —                |
 
 Do not infer that absent provider helpers make their domains unusable in plugin tests: options can configure those domains, and a factory-created organization service exposes its own facade.
 
@@ -287,33 +287,33 @@ Do not infer that absent provider helpers make their domains unusable in plugin 
 
 Every row must have a documented type, default, timing and example or linked recipe.
 
-| Option | Canonical page |
-| --- | --- |
-| `ClockSimulator` | `configuration/time-and-fiscal-settings.md` |
-| `AuthenticatedUser` | `configuration/identity.md` |
-| `BusinessUnit` | `configuration/identity.md` |
-| `Organization` | `configuration/identity.md` |
-| `EntityProcessors` | `entity-processors/index.md` |
-| `PluginExecutionContextMock` | `plugins/execution-context.md` |
-| `FakeServiceFailureSettings` | `configuration/service-failures.md` |
-| `InitialiseData` | `configuration/data.md` |
-| `InitialiseRelationships` | `configuration/data.md` |
-| `SimulatedSecurityModel` | `security/index.md` |
-| `FiscalYearSettings` | `configuration/time-and-fiscal-settings.md` |
-| `Metadata` | `metadata/loading.md` |
-| `Queues` | `queue-management/setup.md` |
+| Option                       | Canonical page                              |
+|------------------------------|---------------------------------------------|
+| `ClockSimulator`             | `configuration/time-and-fiscal-settings.md` |
+| `AuthenticatedUser`          | `configuration/identity.md`                 |
+| `BusinessUnit`               | `configuration/identity.md`                 |
+| `Organization`               | `configuration/identity.md`                 |
+| `EntityProcessors`           | `entity-processors/index.md`                |
+| `PluginExecutionContextMock` | `plugins/execution-context.md`              |
+| `FakeServiceFailureSettings` | `configuration/service-failures.md`         |
+| `InitialiseData`             | `configuration/data.md`                     |
+| `InitialiseRelationships`    | `configuration/data.md`                     |
+| `SimulatedSecurityModel`     | `security/index.md`                         |
+| `FiscalYearSettings`         | `configuration/time-and-fiscal-settings.md` |
+| `Metadata`                   | `metadata/loading.md`                       |
+| `Queues`                     | `queue-management/setup.md`                 |
 
 ### Request inventory
 
 The final request matrix must account for these 29 registered types. Registration is verified; full parameter/response coverage must be checked while writing each row.
 
-| Group | Requests |
-| --- | --- |
-| Core | Create, Update, Upsert, Delete, Retrieve, RetrieveMultiple, Associate, Disassociate, Assign, SetState |
-| Batches | ExecuteMultiple, ExecuteTransaction |
-| Queues | AddToQueue, PickFromQueue, ReleaseToQueue, RemoveFromQueue, RouteTo |
+| Group                 | Requests                                                                                                                                       |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| Core                  | Create, Update, Upsert, Delete, Retrieve, RetrieveMultiple, Associate, Disassociate, Assign, SetState                                          |
+| Batches               | ExecuteMultiple, ExecuteTransaction                                                                                                            |
+| Queues                | AddToQueue, PickFromQueue, ReleaseToQueue, RemoveFromQueue, RouteTo                                                                            |
 | Security and identity | AddMembersTeam, RemoveMembersTeam, GrantAccess, ModifyAccess, RevokeAccess, RetrievePrincipalAccess, RetrieveSharedPrincipalsAndAccess, WhoAmI |
-| Metadata | RetrieveAllEntities, RetrieveEntity, RetrieveAttribute, RetrieveRelationship |
+| Metadata              | RetrieveAllEntities, RetrieveEntity, RetrieveAttribute, RetrieveRelationship                                                                   |
 
 ### Query matrix dimensions
 
@@ -332,38 +332,38 @@ The final request matrix must account for these 29 registered types. Registratio
 
 Every existing content page has a destination below. Moves are intentional; update all in-scope links and local sidebar IDs together. Do not preserve empty old pages solely to preserve URLs.
 
-| Existing path | Disposition and destination |
-| --- | --- |
-| `index.md` | Rewrite as concise Home; distribute long examples to the two entry-point introductions. |
-| `mocking-for-the-organization-service.md` | Replace with `organization-service/index.md`. |
-| `mocking-for-plugins.md` | Replace with `plugins/index.md`. |
-| `data-stores/data-stores.md` | Replace with `assertions/index.md`; distinguish five captured-output categories and facade differences. |
-| `data-stores/entity-data/index.md` | Replace placeholder with `assertions/data.md`; move arrangement material to `configuration/data.md`. |
-| `data-stores/plugin-traces/index.md` | Replace with `assertions/logs.md`. |
-| `data-stores/application-telemetry/index.md` | Replace with `assertions/telemetry.md`. |
-| `data-stores/simulator-audits/index.md` | Replace with `assertions/audits.md`. |
-| `dataverse-metadata/dataverse-metadata.md` | Replace with the `metadata/` section. |
-| `entity-processors/entity-processors.md` | Replace with `entity-processors/index.md`. |
-| `entity-processors/create.md` | Retain path, replace placeholder and correct reversed heading. |
-| `entity-processors/update.md` | Retain path, replace placeholder and correct reversed heading. |
-| `organization-requests/supported-sdk-messages.md` | Move/rewrite as `organization-service/requests/index.md`; retain verified 29-request coverage. |
+| Existing path                                                  | Disposition and destination                                                                                  |
+|----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| `index.md`                                                     | Rewrite as concise Home; distribute long examples to the two entry-point introductions.                      |
+| `mocking-for-the-organization-service.md`                      | Replace with `organization-service/index.md`.                                                                |
+| `mocking-for-plugins.md`                                       | Replace with `plugins/index.md`.                                                                             |
+| `data-stores/data-stores.md`                                   | Replace with `assertions/index.md`; distinguish five captured-output categories and facade differences.      |
+| `data-stores/entity-data/index.md`                             | Replace placeholder with `assertions/data.md`; move arrangement material to `configuration/data.md`.         |
+| `data-stores/plugin-traces/index.md`                           | Replace with `assertions/logs.md`.                                                                           |
+| `data-stores/application-telemetry/index.md`                   | Replace with `assertions/telemetry.md`.                                                                      |
+| `data-stores/simulator-audits/index.md`                        | Replace with `assertions/audits.md`.                                                                         |
+| `dataverse-metadata/dataverse-metadata.md`                     | Replace with the `metadata/` section.                                                                        |
+| `entity-processors/entity-processors.md`                       | Replace with `entity-processors/index.md`.                                                                   |
+| `entity-processors/create.md`                                  | Retain path, replace placeholder and correct reversed heading.                                               |
+| `entity-processors/update.md`                                  | Retain path, replace placeholder and correct reversed heading.                                               |
+| `organization-requests/supported-sdk-messages.md`              | Move/rewrite as `organization-service/requests/index.md`; retain verified 29-request coverage.               |
 | `organization-requests/inject-custom-organization-requests.md` | Move/revise as `organization-service/requests/custom-requests.md`; keep useful examples after source checks. |
-| `security-model/security-model.md` | Replace with `security/index.md` and detailed security pages. |
-| `simulator-options/simulator-options.md` | Replace with `configuration/index.md`; all 13 options. |
-| `simulator-options/initialise-data.md` | Replace with `configuration/data.md`; fix API/types and explain replacement semantics. |
-| `simulator-options/setting-authenticated-user.md` | Consolidate into `configuration/identity.md`. |
-| `simulator-options/configure-user-business-unit.md` | Consolidate into `configuration/identity.md`. |
-| `simulator-options/configure-organization.md` | Consolidate into `configuration/identity.md`. |
-| `simulator-options/setting-plugin-context.md` | Replace with `plugins/execution-context.md`. |
-| `simulator-options/setting-system-time.md` | Consolidate into `configuration/time-and-fiscal-settings.md`. |
-| `simulator-options/configure-fiscal-year-settings.md` | Consolidate into `configuration/time-and-fiscal-settings.md`. |
-| `simulator-options/simulate-security-model.md` | Remove obsolete warning; replace with `security/index.md`; link from configuration overview. |
-| `simulator-options/queue-simulation.md` | Replace with `queue-management/setup.md`. |
-| `simulator-options/setting-entity-processors.md` | Consolidate into `entity-processors/index.md`. |
-| `simulator-options/faking-service-failures.md` | Replace with `configuration/service-failures.md`. |
-| `release-notes/2023.8.1.1.md` | Remove placeholder; replace only if actual release evidence is available. |
-| `release-notes/2023.9.6.1.md` | Remove placeholder; replace only if actual release evidence is available. |
-| `release-notes/2023.9.8.1.md` | Remove placeholder; replace only if actual release evidence is available. |
+| `security-model/security-model.md`                             | Replace with `security/index.md` and detailed security pages.                                                |
+| `simulator-options/simulator-options.md`                       | Replace with `configuration/index.md`; all 13 options.                                                       |
+| `simulator-options/initialise-data.md`                         | Replace with `configuration/data.md`; fix API/types and explain replacement semantics.                       |
+| `simulator-options/setting-authenticated-user.md`              | Consolidate into `configuration/identity.md`.                                                                |
+| `simulator-options/configure-user-business-unit.md`            | Consolidate into `configuration/identity.md`.                                                                |
+| `simulator-options/configure-organization.md`                  | Consolidate into `configuration/identity.md`.                                                                |
+| `simulator-options/setting-plugin-context.md`                  | Replace with `plugins/execution-context.md`.                                                                 |
+| `simulator-options/setting-system-time.md`                     | Consolidate into `configuration/time-and-fiscal-settings.md`.                                                |
+| `simulator-options/configure-fiscal-year-settings.md`          | Consolidate into `configuration/time-and-fiscal-settings.md`.                                                |
+| `simulator-options/simulate-security-model.md`                 | Remove obsolete warning; replace with `security/index.md`; link from configuration overview.                 |
+| `simulator-options/queue-simulation.md`                        | Replace with `queue-management/setup.md`.                                                                    |
+| `simulator-options/setting-entity-processors.md`               | Consolidate into `entity-processors/index.md`.                                                               |
+| `simulator-options/faking-service-failures.md`                 | Replace with `configuration/service-failures.md`.                                                            |
+| `release-notes/2023.8.1.1.md`                                  | Remove placeholder; replace only if actual release evidence is available.                                    |
+| `release-notes/2023.9.6.1.md`                                  | Remove placeholder; replace only if actual release evidence is available.                                    |
+| `release-notes/2023.9.8.1.md`                                  | Remove placeholder; replace only if actual release evidence is available.                                    |
 
 Other existing files: rewrite local `sidebar.js` incrementally for completed pages; leave `AGENTS.md` unchanged unless separately requested. Retain this roadmap as the working tracker.
 
@@ -375,11 +375,10 @@ Use the phase IDs when requesting or reporting work. Check off tasks only when t
 
 Dependencies: none. Priority: planning.
 
-- [ ] Review this roadmap and agree any page-boundary changes.
-- [ ] Confirm the documentation target remains the current local working tree, rather than a particular published release.
+- [x] Review this roadmap and agree any page-boundary changes.
+- [x] Confirm the documentation target remains the current local working tree, rather than a particular published release.
 - [ ] When implementation starts, recheck source identity and changes relevant to the first section without library Git operations.
-- [ ] Establish a source verification log per completed section: date, source snapshot, files/symbols and unresolved limits.
-- [ ] Confirm the owner has excluded this roadmap from the site build; never add it to local navigation.
+- [x] Confirm the owner has excluded this roadmap from the site build; never add it to local navigation.
 
 Exit: plan reviewed; source baseline and documentation boundaries recorded. Do not use completion of the roadmap file itself as authorization to rewrite the docs.
 
